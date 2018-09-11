@@ -1,6 +1,6 @@
 {
   "website":{
-    "title": "Jack's blog"
+    "title": "Amey's blog"
   },
   "nav":{
     "home": "Home",
@@ -13,7 +13,7 @@
   },
   "about_me":{
     "about_me": "About Me",
-    "des": "I am a Full Stack engineer with website development, automation Ops and writing scripts experience. Life is a continuous learning process, so work makes me more rigorous, travel makes my life more colorful. I can make lots of friends when I coding and travel."
+    "des": "I am a Full Stack engineer with machine learning and software development experience. I'm part cynic, part hopeful. I like to write short stories and try fusion cuisines."
   },
   "skills":{
     "my_skills": "My Skills"
