@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amey Ambade</title>
+    <description>Developer</description>
+    <link>https://ameyxd.github.io/</link>
+    <atom:link href="https://ameyxd.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 11 Sep 2018 00:19:03 -0400</pubDate>
+    <lastBuildDate>Tue, 11 Sep 2018 00:19:03 -0400</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Code snippet tests 3</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/jarrekk/Jalpc/issues/97&quot;&gt;Fixed - see this GitHub Issue Log&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For some reasons when you click on the code snippet (markdown tripple back-tick fenced code)
+it just disappears. Anybody know why?&lt;/p&gt;
+
+&lt;p&gt;Testing 123&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+        <pubDate>Thu, 23 Nov 2017 15:51:00 -0500</pubDate>
+        <link>https://ameyxd.github.io/html/2017/11/23/code-snippet-test-3.html</link>
+        <guid isPermaLink="true">https://ameyxd.github.io/html/2017/11/23/code-snippet-test-3.html</guid>
+        
+        <category>Jalpc</category>
+        
+        <category>Jekyll</category>
+        
+        <category>blog</category>
+        
+        <category>ruby</category>
+        
+        <category>gh-pages</category>
+        
+        
+        <category>HTML</category>
+        
+      </item>
+    
+      <item>
+        <title>Code snippet tests 2</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/jarrekk/Jalpc/issues/97&quot;&gt;Fixed - see this GitHub Issue Log&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For some reasons when you click on the code snippet (markdown tripple back-tick fenced code)
+it just disappears. Anybody know why?&lt;/p&gt;
+
+&lt;p&gt;Testing 123&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hello 123
+hello testing 123
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 23 Nov 2017 15:25:00 -0500</pubDate>
+        <link>https://ameyxd.github.io/html/2017/11/23/code-snippet-test-2.html</link>
+        <guid isPermaLink="true">https://ameyxd.github.io/html/2017/11/23/code-snippet-test-2.html</guid>
+        
+        <category>Jalpc</category>
+        
+        <category>Jekyll</category>
+        
+        <category>blog</category>
+        
+        <category>ruby</category>
+        
+        <category>gh-pages</category>
+        
+        
+        <category>HTML</category>
+        
+      </item>
+    
+      <item>
+        <title>Code snippet tests</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/jarrekk/Jalpc/issues/97&quot;&gt;Fixed - see this GitHub Issue Log&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For some reasons when you click on the code snippet (markdown tripple back-tick fenced code)
+it just disappears. Anybody know why?&lt;/p&gt;
+
+&lt;p&gt;Testing 123&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hello 123
+hello testing 123
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 23 Nov 2017 15:00:00 -0500</pubDate>
+        <link>https://ameyxd.github.io/html/2017/11/23/code-snippet-test.html</link>
+        <guid isPermaLink="true">https://ameyxd.github.io/html/2017/11/23/code-snippet-test.html</guid>
+        
+        <category>Jalpc</category>
+        
+        <category>Jekyll</category>
+        
+        <category>blog</category>
+        
+        <category>ruby</category>
+        
+        <category>gh-pages</category>
+        
+        
+        <category>HTML</category>
+        
+      </item>
+    
+      <item>
+        <title>My first Jekyll blog on Github pages</title>
+        <description>&lt;p&gt;I just spent one day building this blog with Jekyll and github page and it’s now up. Many thanks to
+&lt;a href=&quot;https://jarrekk.github.io/Jalpc/&quot;&gt;Jalpc Jekyll Blog&lt;/a&gt; which I blatantly git cloned and tweaked to avoid building from
+scratch. It’s actually pretty great looking!&lt;/p&gt;
+
+&lt;p&gt;How I created this blog:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pre-requisites:
+    &lt;ul&gt;
+      &lt;li&gt;have a GitHub account&lt;/li&gt;
+      &lt;li&gt;have a read of &lt;a href=&quot;https://pages.github.com/&quot;&gt;these GitHub pages intros&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;have some basic knowledge of writing documents in &lt;a href=&quot;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&quot;&gt;Markdown format&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;have these tools installed on the macbook:
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://github.com/rbenv/rbenv&quot;&gt;rbenv&lt;/a&gt;: a tool that creates isolated Ruby environments&lt;/li&gt;
+          &lt;li&gt;Install the latest Ruby within an isolated rbenv environment (so it does not mess with the local system)&lt;/li&gt;
+          &lt;li&gt;Install &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;bundler&lt;/code&gt; - as per the &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;jekyll official website&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Build the site locally:
+    &lt;ul&gt;
+      &lt;li&gt;git clone the repository &lt;a href=&quot;https://jarrekk.github.io/Jalpc/&quot;&gt;Jalpc Jekyll Blog&lt;/a&gt; to the local macbook&lt;/li&gt;
+      &lt;li&gt;rename the repository to &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;github-user&amp;gt;.github.io&lt;/code&gt;. (In my case, &lt;code class=&quot;highlighter-rouge&quot;&gt;atlas7.github.io&lt;/code&gt;. This is to make it mine)&lt;/li&gt;
+      &lt;li&gt;tweak the related files as instructed in the &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; document.&lt;/li&gt;
+      &lt;li&gt;use &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, or &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt; to preview blog at &lt;a href=&quot;http://127.0.0.1:4000/&quot;&gt;http://127.0.0.1:4000/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;iterate a bit to make the blog looks good.&lt;/li&gt;
+      &lt;li&gt;when satisfied, commit the change. i.e. &lt;code class=&quot;highlighter-rouge&quot;&gt;git add .&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m &quot;make it mine&quot;&lt;/code&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Deploy the site to GitHub Pages:
+    &lt;ul&gt;
+      &lt;li&gt;on GitHub, create a new repository called &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;github-user&amp;gt;.github.io&lt;/code&gt;. In my case, &lt;code class=&quot;highlighter-rouge&quot;&gt;atlas7.github.io&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;going back to the repository locally, change the remote path of &lt;code class=&quot;highlighter-rouge&quot;&gt;origin&lt;/code&gt; to our one. i.e. &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote set-url https://github.com/&amp;lt;github-user&amp;gt;/&amp;lt;github-user&amp;gt;.github.io&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;make sure our remote &lt;code class=&quot;highlighter-rouge&quot;&gt;origin&lt;/code&gt; now points to our own GitHub repository. i.e. &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote -v&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;push the local repository to GitHub. i.e. &lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin master&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Done!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;testing-123&quot;&gt;Testing 123&lt;/h1&gt;
+
+&lt;p&gt;This blog is written in Markdown format. Let’s try something out!&lt;/p&gt;
+
+&lt;p&gt;Here is a bash snippet:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;ENV
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ./bin/activate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here is a raw text snippet:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hello 123
+hello testing 123
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here is a JavaScript code snippet:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//=&amp;gt; print 30&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here is a Python code snippet:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# print 30&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Looking good!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Some previously mentioned now fixed:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Problem: for some reason when I click on the code snippet it disappears???
+&lt;a href=&quot;https://github.com/jarrekk/Jalpc/issues/97&quot;&gt;Fixed - see this GitHub Issue Log&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+</description>
+        <pubDate>Thu, 23 Nov 2017 13:00:00 -0500</pubDate>
+        <link>https://ameyxd.github.io/html/2017/11/23/hello-world.html</link>
+        <guid isPermaLink="true">https://ameyxd.github.io/html/2017/11/23/hello-world.html</guid>
+        
+        <category>Jalpc</category>
+        
+        <category>Jekyll</category>
+        
+        <category>blog</category>
+        
+        <category>ruby</category>
+        
+        <category>gh-pages</category>
+        
+        
+        <category>HTML</category>
+        
+      </item>
+    
+  </channel>
+</rss>

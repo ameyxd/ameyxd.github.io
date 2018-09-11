@@ -5,8 +5,6 @@ title: Amey Ambade
 description: Developer
 keywords: ai, machine learning, deep learning, Full-stack, Jalpc, blog, Jekyll, github, gh-pages
 
-# option 1 - publish to http://127.0.0.1:4000/ or https://atlas7.github.io
-#baseurl: /   #comment this out entirely. (otherwise CSS issue)
 url: https://ameyxd.github.io  # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage
 img_path: /static/assets/img/blog  # /homepage/static/assets/img/blog
 
@@ -26,14 +24,17 @@ author:  # change following line to your infomation.
   home2_url: # Leave blank if you don't have now
   email: amey.ambade@columbia.edu  # Leave blank if you don't have now
   cv: # http://cv.jarrekk.com  # An online CV can be printed as PDF, leave blank if you don't have now
+
+
   # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
+  #TO-DO! Add correct icons
   skill_icon1:
     - name: icon-apache
     - name: fa-linux
   skill_icon2:
     - name: fa-linux
-    - name: icon-apache
-  desc: Full-stack Machine Learning Engineer.  # Describe yourself.
+    - name: icon-python
+  desc: Full-stack Machine Learning Engineer  # Describe yourself.
 
 # comment
 #disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.

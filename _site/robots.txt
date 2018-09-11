@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: <https://ameyxd.github.io/sitemap.xml>
