@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/Atlas7/atlas7.github.io.svg?branch=master)](https://travis-ci.org/Atlas7/atlas7.github.io)
+<!-- [![Build Status](https://travis-ci.org/Atlas7/atlas7.github.io.svg?branch=master)](https://travis-ci.org/Atlas7/atlas7.github.io) -->
 
-Welcome to my blog: [https://atlas7.github.io/](https://atlas7.github.io/)
+Welcome to my blog: [https://ameyxd.github.io/](https://ameyxd.github.io/)
 
 It is is built with Jekyll, GitHub Pages, and the [Jalpc Theme](https://github.com/jarrekk/Jalpc)
 (Check out Jalpc for more instructions).
@@ -12,12 +12,12 @@ git clone this repository locally to my mac.
 Make sure git repository has the appropriate remote:
 
 ```
-johnny@Chuns-MacBook-Pro atlas7.github.io (master) $ git remote -v
+(master) $ git remote -v
 origin  https://github.com/Atlas7/atlas7.github.io.git (fetch)
 origin  https://github.com/Atlas7/atlas7.github.io.git (push)
 ```
 
-Use an IDE (I use Webstorm, though Sublime text will also do) and a terminal (e.g. iterm2, or Mac Terminal).
+Use an IDE (I use Atom, though Sublime text will also do) and a terminal (I use Terminator because it's awesome).
 
 Create a new blog post:
 
@@ -50,5 +50,7 @@ git push origin master
 Again, please check out the [Jalpc Theme](https://github.com/jarrekk/Jalpc)) - it has all the instructions
 on how to download the base repository and tweak. This is how I got started.
 
+I also took help from [Atlas7](https://atlas7.github.io) when I ran into issues.
+
 Cheers,
-Johnny
+Amey.
