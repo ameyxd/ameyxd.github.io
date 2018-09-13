@@ -45,6 +45,9 @@
                     <li><a href="{{ site.author.home2_url }}" target="blank"><i class="fa fa-home"></i></a></li>
                     {% endif %}
                     <li><a href="{{ site.baseurl }}/feed.xml" target="blank"><i class="fa fa-rss"></i></a></li>
+                    {% if site.author.medium %}
+                    <li><a href="{{ site.author.medium }}" target="blank"><i class="fa fa-medium"></i></a></li>
+                    {% endif %}
                     {% if site.author.cv %}
                     <li><a href="{{ site.author.cv }}" target="blank"><i class="fa fa-file-pdf-o"></i></a></li>
                     {% endif %}
