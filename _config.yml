@@ -23,7 +23,7 @@ author:  # change following line to your infomation.
   stackoverflow_name:  # Leave blank if you don't have now
   home2_url: # Leave blank if you don't have now
   email: amey.ambade@columbia.edu  # Leave blank if you don't have now
-  cv: # http://cv.jarrekk.com  # An online CV can be printed as PDF, leave blank if you don't have now
+  cv:  https://github.com/ameyxd/ameyxd.github.io/raw/master/Amey_Ambade_Resume.pdf  # An online CV can be printed as PDF, leave blank if you don't have now
 
 
   # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
@@ -34,7 +34,7 @@ author:  # change following line to your infomation.
   skill_icon2:
     - name: fa-linux
     - name: icon-python
-  desc: Full-stack Machine Learning Engineer  # Describe yourself.
+  desc: I am a Full Stack engineer with machine learning and software development experience. I'm part cynic, part hopeful. I like to write short stories and try fusion cuisines.  # Describe yourself.
 
 # comment
 #disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.

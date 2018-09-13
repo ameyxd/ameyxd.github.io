@@ -21,7 +21,7 @@
         <div class="col-xs-4">
             <div class="team-member wow zoomIn">
                 <img src="{{ site.author.avatar | prepend: site.baseurl }}" height="110" width="110" class="img-responsive img-circle" alt="avatar">
-                <h4><span class="navy">{{ site.author.first_name }}</span> {{ site.author.last_name }}</h4>
+                <h1><span class="navy">{{ site.author.first_name }}</span> {{ site.author.last_name }}</h1>
                 <ul class="list-inline social-icon">
                     {% if site.author.github_username %}
                     <li><a href="https://github.com/{{ site.author.github_username }}" target="blank"><i class="fa fa-github"></i></a></li>
@@ -49,6 +49,7 @@
                     <li><a href="{{ site.author.cv }}" target="blank"><i class="fa fa-file-pdf-o"></i></a></li>
                     {% endif %}
                 </ul>
+
             </div>
         </div>
         <!-- second two icons -->
