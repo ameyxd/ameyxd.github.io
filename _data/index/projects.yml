@@ -81,8 +81,8 @@
   desc: >
     I led the team working to develop an artificially intelligent system that can detect objects posing as a security threat in environments under surveillance.
     I designed a Python-based supervised learning algorithm on a CUDA-Theano-Keras backbone.
-    I trained the CNN on a 60k CIFAR-10 dataset and tested it on optimally extracted frames from videos to achieve an accuracy of 80%.
-    I prepared proposals and made presentations for funding and review and presented at the Student Research Symposium 2017, IIT Indore.
+  #  I trained the CNN on a 60k CIFAR-10 dataset and tested it on optimally extracted frames from videos to achieve an accuracy of 80%.
+  #  I presented at the Student Research Symposium 2017, IIT Indore.
 
 - name: Modeling 3D rooms
 #  i18n:
@@ -104,13 +104,13 @@
     Used Haar classifiers and eigenfaces for training to detect presence, location and orientation of faces in images.
 
 
-- name: Prison Database Management System
-#  i18n:
-  # url: https://www.amazon.com/
-  # gh_user: ameyxd
-  # repo: call-jenny
-  img: /static/assets/img/landing/alexa_what_the_pet_icon.png
-  desc: "An SQL-based system to efficiently manage and access information in prison networks."
+# - name: Prison Database Management System
+# #  i18n:
+#   # url: https://www.amazon.com/
+#   # gh_user: ameyxd
+#   # repo: call-jenny
+#   img: /static/assets/img/landing/alexa_what_the_pet_icon.png
+#   desc: "An SQL-based system to efficiently manage and access information in prison networks."
 
 #- name: Jalpc
 #  i18n: jalpc
