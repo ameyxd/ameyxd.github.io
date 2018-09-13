@@ -8,7 +8,7 @@
   # url: https://atlas7.github.io/fungai-blog/
   # gh_user: Atlas7
   # repo: fungai-blog
-  img: /static/assets/img/landing/fungai_org_icon.png
+  img: /static/assets/img/landing/legal.png
   desc: >
     I'm developing software to predict the outcome of contractual damage litigation to benefit academics in debates, parties in drafting contracts,
     counsels in their pre-trial exchanges and judges in assisting their rulings. I am using NLP to extract information from online legal databases and ML
@@ -19,7 +19,7 @@
   # url: https://www.amazon.com/
   # gh_user: ameyxd
   # repo: call-jenny
-  img: /static/assets/img/landing/fungai_org_icon.png
+  img: /static/assets/img/landing/cnarm.png
   desc: >
     I built a deep learning based architecture to improve session-based recommendations for e-commerce scenarios where user profiles are invisible
     using an attention mechanism and context information about the user's actions. Achieved significant improvements in Recall@20 and MRR@20 scores
@@ -31,7 +31,7 @@
   # url: https://www.amazon.com/
   # gh_user: ameyxd
   # repo: call-jenny
-  img: /static/assets/img/landing/fungai_org_icon.png
+  img: /static/assets/img/landing/drawing.jpg
   desc: >
     I designed and implemented a Generative Adversarial Network model called PictoGAN that can play Pictionary.
     I modeled multi-class data from the Quick, Draw! dataset to allow the generator network to produce output similar to human drawings of different objects.
@@ -42,7 +42,7 @@
   # url: https://www.amazon.com/
   # gh_user: ameyxd
   # repo: call-jenny
-  img: /static/assets/img/landing/mathalope_icon.png
+  img: /static/assets/img/landing/integro.jpeg
   desc: >
     I developed a Django web app to pull information from various services like YouTube, Wikipedia, Twitter and Reddit
     based on searches, and make recommendations using AWS DynamoDB and Lambda.
@@ -57,7 +57,7 @@
   repo: ameyxd.github.io
   img: /static/assets/img/landing/avatar.jpg
   desc: >
-    (aka this website) My attempt to build a portfolio website with Jekyll and GitHub Pages.
+    Thiss portfolio website built with Jekyll and GitHub Pages.
     It uses the beautiful Jalpc theme.
 
 - name: AI Customer Service App
@@ -65,7 +65,7 @@
   # url: https://www.amazon.com/
   # gh_user: ameyxd
   # repo: call-jenny
-  img: /static/assets/img/landing/kingfisher.jpg
+  img: /static/assets/img/landing/chatbot.png
   desc: >
     I developed a Customer Service chatbot, an iOS application that included facial verification, and allowed users to have complete conversations
      with a bot for booking a cab, a hotel or a parking spot.
@@ -77,7 +77,7 @@
   # url: https://www.amazon.com/
   # gh_user: ameyxd
   # repo: call-jenny
-  img: /static/assets/img/landing/alexa_uk_towns_icon.png
+  img: /static/assets/img/landing/object.jpg
   desc: >
     I led the team working to develop an artificially intelligent system that can detect objects posing as a security threat in environments under surveillance.
     I designed a Python-based supervised learning algorithm on a CUDA-Theano-Keras backbone.
@@ -89,7 +89,7 @@
   # url: https://www.amazon.com/
   # gh_user: ameyxd
   # repo: call-jenny
-  img: /static/assets/img/landing/alexa_mind_the_gap_icon.png
+  img: /static/assets/img/landing/room.jpg
   desc: "I built a 3D model of a home with interactive objects and developed game tactics based on movement and placement of those objects using OpenGL and C++."
 
 
@@ -98,7 +98,7 @@
   # url: https://www.amazon.com/
   # gh_user: ameyxd
   # repo: call-jenny
-  img: /static/assets/img/landing/alexa_what_the_pet_icon.png
+  img: /static/assets/img/landing/face.png
   desc: >
     An implementation of the Viola-Jones face detection technique and analysis of its shortcomings in MATLAB.
     Used Haar classifiers and eigenfaces for training to detect presence, location and orientation of faces in images.
