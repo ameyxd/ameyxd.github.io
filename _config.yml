@@ -2,8 +2,8 @@
 
 # Website settings
 title: Amey Ambade
-description: Developer
-keywords: ai, machine learning, deep learning, Full-stack, Jalpc, blog, Jekyll, github, gh-pages
+description: Data Scientist
+keywords: ai, machine learning, deep learning, data science, computer vision, Full-stack, github, gh-pages
 
 url: https://ameyxd.github.io  # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage
 img_path: /static/assets/img/blog  # /homepage/static/assets/img/blog
@@ -19,11 +19,12 @@ author:  # change following line to your infomation.
   linkedin_id: ameyambade # Leave blank if you don't have now
   facebook_username:   # Leave blank if you don't have now
   twitter_username: misteramey  # Leave blank if you don't have now
-  stackoverflow_id:  # Leave blank if you don't have now
-  stackoverflow_name:  # Leave blank if you don't have now
+  stackoverflow_id:  3972433 # Leave blank if you don't have now
+  stackoverflow_name: Amey # Leave blank if you don't have now
   home2_url: # Leave blank if you don't have now
   email: amey.ambade@columbia.edu  # Leave blank if you don't have now
-  cv:  https://github.com/ameyxd/ameyxd.github.io/raw/master/Amey_Ambade_Resume.pdf  # An online CV can be printed as PDF, leave blank if you don't have now
+#  cv:  https://github.com/ameyxd/ameyxd.github.io/raw/master/Amey_Ambade_Resume.pdf  # An online CV can be printed as PDF, leave blank if you don't have now
+  cv:  https://github.com/ameyxd/ameyxd.github.io/raw/master/Amey_Ambade_Resume_Mar_2020.pdf  # An online CV can be printed as PDF, leave blank if you don't have now
   medium: https://medium.com/@amey
   telegram: https://t.me/ameyxd
   spotify: https://open.spotify.com/user/drinksup
@@ -39,7 +40,7 @@ author:  # change following line to your infomation.
   skill_icon2:
     - name: fa-linux
     - name: icon-python
-  desc: I am a Full Stack engineer with machine learning and software development experience. I'm part cynic, part hopeful. I like to write short stories and try fusion cuisines.  # Describe yourself.
+  desc: I am a Data Scientist with experience in machine learning and software development. I'm part cynic, part hopeful. I like to write short stories, play the uke and cook healthy stuff. My record time for keeping a houseplant alive is five days. # Describe yourself.
 
 # comment
 #disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
@@ -54,7 +55,7 @@ ga:  # if you wanna this feature, go to https://www.google.com/analytics/ to get
 donation: off  # type 'on'/'off' to choice display donation button at post page or not
 
 ## carousels
-index_carousel: on  # index page carousel switch
+index_carousel: off  # index page carousel switch
 blog_carousel: on  # blog page carousel switch
 
 # scss

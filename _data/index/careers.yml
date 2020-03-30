@@ -5,6 +5,21 @@
     detail: Schlumberger
   desc:
     detail: >
+      I work with international oil companies to help build machine learning workflows to improve their in-field efficiency.
+      I am involved in analyzing interesting patterns in data, building detection and prediction models around them and deploying them using custom pipelines.
+
+      Frameworks: Tensorflow, scikit-learn, Python, Keras, R, Dataiku.
+
+  date:
+    detail: March 2019 - present, Houston
+  job:
+    detail: Data Scientist
+  icon: fa-plus-square
+
+- name:
+    detail: Schlumberger
+  desc:
+    detail: >
       I designed a deep learning-based model to detect and classify erosion in drilling and measurement TeleScope tool to aid experts on rigs automate tool monitoring.
       I modeled and developed an LSTM model for predicting drill cracking based on time series data from bottom hole assembly sensors.
       I built a health analyzer application for predicting magnet subsystem sensor failures for PowerDrive tools.
