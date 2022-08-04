@@ -18,13 +18,12 @@ author:  # change following line to your infomation.
   github_username: ameyxd  # Leave blank if you don't have now
   linkedin_id: ameyambade # Leave blank if you don't have now
   facebook_username:   # Leave blank if you don't have now
-  twitter_username: misteramey  # Leave blank if you don't have now
+  twitter_username: ameyzer  # Leave blank if you don't have now
   stackoverflow_id:  3972433 # Leave blank if you don't have now
   stackoverflow_name: Amey # Leave blank if you don't have now
   home2_url: # Leave blank if you don't have now
   email: amey.ambade@columbia.edu  # Leave blank if you don't have now
-#  cv:  https://github.com/ameyxd/ameyxd.github.io/raw/master/Amey_Ambade_Resume.pdf  # An online CV can be printed as PDF, leave blank if you don't have now
-  cv:  https://github.com/ameyxd/ameyxd.github.io/raw/master/Amey_Ambade_Resume_Mar_2020.pdf  # An online CV can be printed as PDF, leave blank if you don't have now
+  cv:  https://github.com/ameyxd/ameyxd.github.io/raw/master/Amey_Ambade_Resume_2022___Reddit.pdf  # An online CV can be printed as PDF, leave blank if you don't have now
   medium: https://medium.com/@amey
   telegram: https://t.me/ameyxd
   spotify: https://open.spotify.com/user/drinksup
@@ -40,7 +39,7 @@ author:  # change following line to your infomation.
   skill_icon2:
     - name: fa-linux
     - name: icon-python
-  desc: I am a Data Scientist with experience in machine learning and software development. I'm part cynic, part hopeful. I like to write short stories, play the uke and cook healthy stuff. My record time for keeping a houseplant alive is five days. # Describe yourself.
+  desc: I am a Data Scientist with experience in machine learning, computer vision and software development. I build cross-domain end-to-end AI/ML solutions for customers. I have developed innovative and actionable ML product prototypes and operationalized data science solutions by collaborating with different product lines and business teams. I'm part cynic, part hopeful. I like to write short stories, play the uke and cook healthy stuff. My record time for keeping a houseplant alive is five days. # Describe yourself.
 
 # comment
 #disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.

@@ -11,7 +11,7 @@
       Frameworks: Tensorflow, scikit-learn, Python, Keras, R, Dataiku.
 
   date:
-    detail: March 2019 - present, Houston
+    detail: 2019 - present, Houston
   job:
     detail: Data Scientist
   icon: fa-plus-square
@@ -27,7 +27,7 @@
       Frameworks: Tensorflow, scikit-learn, Python.
 
   date:
-    detail: May 2018 - Aug 2018, Houston
+    detail: 2018, Houston
   job:
     detail: Data Scientist, Summer Intern
   icon: fa-plus-square
@@ -36,23 +36,37 @@
     detail: Columbia University
   desc:
     detail: >
-      I'm currently pursuing a Master's degree in Computer Science with a specialization in Machine Learning. My primary goal is to gain sound technical knowledge
+      I'm graduated with a Master's degree in Computer Science with a specialization in Machine Learning. My goal during my degree was to gain sound technical knowledge
       to help me fuel my desire to learn and improve myself as computer science professional. My courses reflect my interests and along with my academic profile are indicative of my technical prowess.
 
   date:
-    detail: Aug 2017 - present, New York
+    detail: 2018, New York
   job:
     detail: Graduate student in Computer Science
+  icon: fa-plus-square
+
+- name:
+    detail: Indian Institute of Technology (IIT)
+  desc:
+    detail: >
+      I earned a B. Tech. in Computer Science and Engineering with a Minor degree in Humanities and Social Sciences. My focus was on building a well-rounded
+      knowledge base of computer science fundamentals and software engineering practices to contribute toward my career in the technology industry.
+      I was also involved in managing student extracurricular activities: I served as the Chief Editor for all publications under the university literary club and I helped found
+      the university astronomy club.
+  date:
+    detail: 2017, Indore
+  job:
+    detail: Computer Science and Engineering, Undergraduate
   icon: fa-plus-square
 
 - name:
     detail: École Internationale des Sciences du Traitement de l'Information
   desc:
     detail: >
-      I refactored the database schema for better usability and maintainability of AREL, an e-learning platform used by over 1500 EISTI students. I modeled and implemented methods to extract data from Oracle databases using Hibernate ORM for Java. I developed scripts for data extraction and helped restructure the web-app using the Spring framework in Java.
+      I built automatic data extraction and analysis models using NLP and machine learning for AREL, an e-learning platform used by 1500+ French students and alumni. 
 
   date:
-    detail: May 2016 - Jul 2016, Paris
+    detail: 2016, Paris
   job:
     detail: Software Engineer, Summer Intern
   icon: fa-plus-square
@@ -65,24 +79,11 @@
       I was responsible for real-time notification and translation systems for direct access to data from Teamchat's web or mobile interface, that are commercially available to clientele today.
 
   date:
-    detail: May 2015 - Jul 2015, Mumbai
+    detail: 2015, Mumbai
   job:
     detail: Software Engineer, Summer Intern
   icon: fa-plus-square
 
-- name:
-    detail: Indian Institute of Technology Indore
-  desc:
-    detail: >
-      I earned a B. Tech. in Computer Science and Engineering with a Minor degree in Humanities and Social Sciences. My focus was on building a well-rounded
-      knowledge base of computer science fundamentals and software engineering practices to contribute toward my career in the technology industry.
-      I was also involved in managing student extracurricular activities: I served as the Chief Editor for all publications under the university literary club and I helped found
-      the university astronomy club.
-  date:
-    detail: Aug 2013 - Apr 2017, Indore
-  job:
-    detail: Computer Science and Engineering, Undergraduate
-  icon: fa-plus-square
 
 
 #- name:
