@@ -68,7 +68,6 @@ export interface DockIconProps {
   mousex?: any;
   className?: string;
   children?: React.ReactNode;
-  props?: PropsWithChildren;
 }
 
 const DockIcon = ({
