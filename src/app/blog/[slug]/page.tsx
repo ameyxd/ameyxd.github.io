@@ -86,23 +86,23 @@ export default async function Blog({
       />
       <BlurFade>
         <article className="flex flex-col gap-8">
-          <header className="flex flex-col gap-8">
-            <h1 className="text-4xl font-semibold tracking-tight">
+          <header className="flex flex-col gap-8 text-center mb-16">
+            <h1 className="text-6xl font-semibold tracking-tight">
               {post.metadata.title}
             </h1>
-            <div className="flex items-center gap-2 text-muted-foreground">
+            <div className="flex items-center justify-center gap-2 text-muted-foreground text-lg">
               <Suspense fallback={<p className="h-5" />}>
                 <time>{post.metadata.publishedAt}</time>
                 <span>—</span>
                 <span>{post.metadata.readingTime} min read</span>
               </Suspense>
             </div>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-2xl text-muted-foreground leading-relaxed">
               {post.metadata.description}
             </p>
           </header>
           <div
-            className="prose dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-muted-foreground prose-a:underline hover:prose-a:text-primary"
+            className="prose dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-muted-foreground prose-a:underline hover:prose-a:text-primary prose-p:text-lg prose-headings:text-4xl"
             dangerouslySetInnerHTML={{ __html: post.source }}
           />
         </article>
