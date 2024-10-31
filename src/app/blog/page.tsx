@@ -13,34 +13,40 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   return (
-    <section>
-      <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="font-medium text-2xl mb-8 tracking-tighter">blog</h1>
-      </BlurFade>
-      {posts
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1;
-          }
-          return 1;
-        })
-        .map((post, id) => (
-          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
-            <Link
-              className="flex flex-col space-y-1 mb-4"
-              href={`/blog/${post.slug}`}
-            >
-              <div className="w-full flex flex-col">
-                <p className="tracking-tight">{post.metadata.title}</p>
-                <p className="h-6 text-xs text-muted-foreground">
-                  {post.metadata.publishedAt}
-                </p>
-              </div>
-            </Link>
-          </BlurFade>
-        ))}
-    </section>
+    <div className="max-w-[700px] mx-auto">
+      <section className="flex flex-col gap-8">
+        {posts
+          .sort((a, b) => {
+            if (
+              new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
+            ) {
+              return -1;
+            }
+            return 1;
+          })
+          .map((post, id) => (
+            <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
+              <Link
+                className="flex flex-col space-y-2 group"
+                href={`/blog/${post.slug}`}
+              >
+                <article>
+                  <h2 className="text-4xl font-semibold tracking-tight mb-2 group-hover:text-primary/70 transition-colors">
+                    {post.metadata.title}
+                  </h2>
+                  <div className="flex items-center gap-2 text-muted-foreground mb-4">
+                    <time>{post.metadata.publishedAt}</time>
+                    <span>—</span>
+                    <span>{post.metadata.readingTime} min read</span>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {post.metadata.description}
+                  </p>
+                </article>
+              </Link>
+            </BlurFade>
+          ))}
+      </section>
+    </div>
   );
 }

@@ -1,9 +1,9 @@
 import { getBlogPosts, getPost } from "@/data/blog";
 import { DATA } from "@/data/resume";
-import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import BlurFade from "@/components/magicui/blur-fade";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -22,7 +22,7 @@ export async function generateMetadata({
   let {
     title,
     publishedAt: publishedTime,
-    summary: description,
+    description,
     image,
   } = post.metadata;
   let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
@@ -36,11 +36,7 @@ export async function generateMetadata({
       type: "article",
       publishedTime,
       url: `${DATA.url}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: "summary_large_image",
@@ -65,7 +61,7 @@ export default async function Blog({
   }
 
   return (
-    <section id="blog">
+    <div className="max-w-[700px] mx-auto">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -76,7 +72,7 @@ export default async function Blog({
             headline: post.metadata.title,
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
+            description: post.metadata.description,
             image: post.metadata.image
               ? `${DATA.url}${post.metadata.image}`
               : `${DATA.url}/og?title=${post.metadata.title}`,
@@ -88,20 +84,29 @@ export default async function Blog({
           }),
         }}
       />
-      <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-        <Suspense fallback={<p className="h-5" />}>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
-          </p>
-        </Suspense>
-      </div>
-      <article
-        className="prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: post.source }}
-      ></article>
-    </section>
+      <BlurFade>
+        <article className="flex flex-col gap-8">
+          <header className="flex flex-col gap-8">
+            <h1 className="text-4xl font-semibold tracking-tight">
+              {post.metadata.title}
+            </h1>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Suspense fallback={<p className="h-5" />}>
+                <time>{post.metadata.publishedAt}</time>
+                <span>—</span>
+                <span>{post.metadata.readingTime} min read</span>
+              </Suspense>
+            </div>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              {post.metadata.description}
+            </p>
+          </header>
+          <div
+            className="prose dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-muted-foreground prose-a:underline hover:prose-a:text-primary"
+            dangerouslySetInnerHTML={{ __html: post.source }}
+          />
+        </article>
+      </BlurFade>
+    </div>
   );
 }

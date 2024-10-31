@@ -7,11 +7,16 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 
-type Metadata = {
-  title: string;
-  publishedAt: string;
-  summary: string;
-  image?: string;
+export type BlogPost = {
+  slug: string;
+  metadata: {
+    title: string;
+    publishedAt: string;
+    description: string;
+    readingTime: number;
+    tags: string[];
+  };
+  content: string;
 };
 
 function getMDXFiles(dir: string) {
