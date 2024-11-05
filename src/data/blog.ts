@@ -19,6 +19,16 @@ export type BlogPost = {
   content: string;
 };
 
+type BlogPostMetadata = {
+  title: string;
+  publishedAt: string;
+  description: string;
+  readingTime: number;
+  image?: string;
+  coverImage?: string;
+  tags?: string[];
+}
+
 function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
@@ -59,7 +69,7 @@ export async function getPost(slug: string) {
       readingTime, // Add computed reading time to metadata
     },
     slug,
-  };
+  } as const;
 }
 
 async function getAllPosts(dir: string) {

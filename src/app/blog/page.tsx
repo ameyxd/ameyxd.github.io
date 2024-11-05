@@ -25,12 +25,22 @@ const getTagColor = (tag: string) => {
   return `hsl(${hue}, 70%, 90%)`;
 };
 
+interface PageProps {
+  params?: { tag?: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
 export default async function BlogPage({ 
   params,
-  searchParams 
-}: BlogPageProps) {
-  const posts = await getBlogPosts();
-  const tag = params?.tag;
+  searchParams,
+  posts: propPosts, 
+  tag 
+}: PageProps & {
+  posts?: Awaited<ReturnType<typeof getBlogPosts>>;
+  tag?: string;
+}) {
+  const posts = propPosts ?? await getBlogPosts();
+
 
   return (
     <div className="max-w-[700px] mx-auto">

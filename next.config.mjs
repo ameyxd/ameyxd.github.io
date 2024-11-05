@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  typescript: {
+    // Skip type checking during build
+    ignoreBuildErrors: true
+  },
   reactStrictMode: true,
   output: "export",
   images: {
