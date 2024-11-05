@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "tinacms dev -c \"next dev\"",
+    "build": "tinacms build && next build",
     "start": "next start",
-    "lint": "next lint", 
+    "lint": "next lint",
     "export": "next build"
   },
   "dependencies": {
@@ -15,6 +15,8 @@
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
+    "@tinacms/auth": "^1.0.8",
+    "@tinacms/cli": "^1.6.11",
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -33,6 +35,7 @@
     "shiki": "^1.7.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "tinacms": "^2.4.0",
     "unified": "^11.0.4"
   },
   "devDependencies": {
