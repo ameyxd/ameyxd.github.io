@@ -42,13 +42,22 @@ export async function markdownToHTML(markdown: string) {
 }
 
 export async function getPost(slug: string) {
-  const filePath = path.join("content", `${slug}.mdx`);
+  const filePath = path.join("content/posts", `${slug}.mdx`);
   let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
   const content = await markdownToHTML(rawContent);
+  
+  // Calculate reading time
+  const wordsPerMinute = 200;
+  const wordCount = rawContent.split(/\s+/g).length;
+  const readingTime = Math.ceil(wordCount / wordsPerMinute);
+  
   return {
     source: content,
-    metadata,
+    metadata: {
+      ...metadata,
+      readingTime, // Add computed reading time to metadata
+    },
     slug,
   };
 }
@@ -69,5 +78,5 @@ async function getAllPosts(dir: string) {
 }
 
 export async function getBlogPosts() {
-  return getAllPosts(path.join(process.cwd(), "content"));
+  return getAllPosts(path.join(process.cwd(), "content/posts/"));
 }
