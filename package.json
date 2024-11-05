@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:test": "next build",
+    "test:all": "tsc && next lint && next build",
     "dev": "pnpm exec concurrently \"pnpm blog watch-images\" \"next dev\"",
     "build": "pnpm blog process-images || true && next build",
     "start": "next start",
