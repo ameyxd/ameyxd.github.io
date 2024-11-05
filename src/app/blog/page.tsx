@@ -1,13 +1,20 @@
+import { Metadata } from 'next';
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Blog",
   description: "My thoughts on software development, life, and more.",
 };
+
+// Define the props interface
+interface BlogPageProps {
+  params?: { tag?: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -15,17 +22,15 @@ const getTagColor = (tag: string) => {
   // Simple hash function to get consistent colors for tags
   const hash = tag.split('').reduce((acc, char) => char.charCodeAt(0) + acc, 0);
   const hue = hash % 360;
-  return `hsl(${hue}, 70%, 90%)`; // Pastel colors
+  return `hsl(${hue}, 70%, 90%)`;
 };
 
 export default async function BlogPage({ 
-  posts: propPosts, 
-  tag 
-}: { 
-  posts?: Awaited<ReturnType<typeof getBlogPosts>>,
-  tag?: string 
-} = {}) {
-  const posts = propPosts ?? await getBlogPosts();
+  params,
+  searchParams 
+}: BlogPageProps) {
+  const posts = await getBlogPosts();
+  const tag = params?.tag;
 
   return (
     <div className="max-w-[700px] mx-auto">

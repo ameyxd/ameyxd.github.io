@@ -1,6 +1,11 @@
 import { getBlogPosts } from "@/data/blog";
 import BlogPage from "../../page";
 
+interface TagPageProps {
+    params: { tag: string };
+    searchParams?: { [key: string]: string | string[] | undefined };
+}
+
 // Add this function to generate static paths for all tags
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -11,11 +16,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function TagPage({ params }: { params: { tag: string } }) {
+export default async function TagPage({ params, searchParams }: TagPageProps) {
   const posts = await getBlogPosts();
   const filteredPosts = posts.filter(post => 
     post.metadata.tags?.includes(params.tag)
   );
   
-  return <BlogPage posts={filteredPosts} tag={params.tag} />;
+  return <BlogPage params={params} searchParams={searchParams} />;
 } 
