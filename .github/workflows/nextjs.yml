@@ -57,6 +57,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Add these steps for image processing
+      - name: Create necessary directories
+        run: |
+          mkdir -p content/images
+          mkdir -p public/images
+
+      - name: Process images
+        run: pnpm blog process-images || true  # Continue even if no images to process
+
       - name: Build with Next.js
         run: pnpm build
 
