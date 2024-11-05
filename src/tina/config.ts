@@ -1,28 +1,13 @@
-/**
- * Copyright (c) 2024 Amey Ambade
- * Licensed under MIT License
- * Path: /tina/config.ts
- */
-
-import { defineConfig } from "tinacms"
-
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main"
+import { defineConfig } from "tinacms";
 
 export default defineConfig({
-  branch,
+  branch: process.env.NEXT_PUBLIC_TINA_BRANCH || "",
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
   token: process.env.TINA_TOKEN || "",
 
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-  },
-
-  media: {
-    tina: {
-      mediaRoot: "public/images",
-      publicFolder: "public",
-    },
   },
 
   schema: {
@@ -35,9 +20,6 @@ export default defineConfig({
         ui: {
           filename: {
             readonly: true,
-            slugify: (values) => {
-              return `${values?.title?.toLowerCase().replace(/ /g, "-")}`
-            },
           },
         },
         fields: [
@@ -61,6 +43,16 @@ export default defineConfig({
             ui: {
               component: "textarea",
             },
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Cover Image",
+          },
+          {
+            type: "number",
+            name: "readingTime",
+            label: "Reading Time (minutes)",
           },
           {
             type: "rich-text",
@@ -109,18 +101,14 @@ export default defineConfig({
               },
             ],
           },
-          {
-            type: "image",
-            name: "image",
-            label: "Cover Image",
-          },
-          {
-            type: "number",
-            name: "readingTime",
-            label: "Reading Time (minutes)",
-          }
         ],
       },
     ],
   },
-})
+  media: {
+    tina: {
+      publicFolder: "public",
+      mediaRoot: "images",
+    },
+  },
+}); 

@@ -4,16 +4,14 @@ var branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 var config_default = defineConfig({
   branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-  // Get this from tina.io
   token: process.env.TINA_TOKEN || "",
-  // Get this from tina.io
   build: {
     outputFolder: "admin",
     publicFolder: "public"
   },
   media: {
     tina: {
-      mediaRoot: "uploads",
+      mediaRoot: "public/images",
       publicFolder: "public"
     }
   },
@@ -42,9 +40,17 @@ var config_default = defineConfig({
           },
           {
             type: "datetime",
-            name: "date",
-            label: "Date",
+            name: "publishedAt",
+            label: "Published Date",
             required: true
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: {
+              component: "textarea"
+            }
           },
           {
             type: "rich-text",
@@ -60,7 +66,7 @@ var config_default = defineConfig({
                     name: "language",
                     label: "Language",
                     type: "string",
-                    options: ["javascript", "typescript", "python", "jsx", "tsx", "bash"]
+                    options: ["typescript", "javascript", "jsx", "tsx", "bash", "css", "json", "markdown"]
                   },
                   {
                     name: "code",
@@ -94,52 +100,14 @@ var config_default = defineConfig({
             ]
           },
           {
-            type: "string",
-            name: "description",
-            label: "Description",
-            ui: {
-              component: "textarea"
-            }
-          },
-          {
             type: "image",
-            name: "coverImage",
+            name: "image",
             label: "Cover Image"
           },
           {
-            type: "string",
-            name: "tags",
-            label: "Tags",
-            list: true,
-            ui: {
-              component: "tags"
-            }
-          },
-          {
-            type: "boolean",
-            name: "draft",
-            label: "Draft"
-          }
-        ]
-      },
-      {
-        name: "page",
-        label: "Pages",
-        path: "content/pages",
-        format: "mdx",
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true
+            type: "number",
+            name: "readingTime",
+            label: "Reading Time (minutes)"
           }
         ]
       }

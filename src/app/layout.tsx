@@ -1,16 +1,23 @@
-import Navbar from "@/components/navbar";
-import { ThemeProvider } from "@/components/theme-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { DATA } from "@/data/resume";
-import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
-import "./globals.css";
+/**
+ * Copyright (c) 2024 Amey Ambade
+ * Licensed under MIT License
+ * Path: /app/layout.tsx
+ */
+
+import Navbar from "@/components/navbar"
+import { ThemeProvider } from "@/components/theme-provider"
+import { TooltipProvider } from "@/components/ui/tooltip"
+import { DATA } from "@/data/resume"
+import { cn } from "@/lib/utils"
+import type { Metadata } from "next"
+import { Inter as FontSans } from "next/font/google"
+import "./globals.css"
+import TinaProvider from "@/components/tina-provider"
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-});
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
@@ -46,12 +53,12 @@ export const metadata: Metadata = {
     google: "",
     yandex: "",
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -63,11 +70,13 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
+            <TinaProvider>
+              {children}
+              <Navbar />
+            </TinaProvider>
           </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

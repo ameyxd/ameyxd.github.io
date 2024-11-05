@@ -1,16 +1,9 @@
 fragment PostParts on Post {
   __typename
   title
-  date
-  body
+  publishedAt
   description
-  coverImage
-  tags
-  draft
-}
-
-fragment PageParts on Page {
-  __typename
-  title
   body
+  image
+  readingTime
 }
