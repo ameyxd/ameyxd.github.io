@@ -62,38 +62,23 @@ export default async function BlogPage({
         {posts.map((post, id) => (
           <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
             <article className="flex flex-col">
-              <Link
-                className="flex flex-col space-y-2 group"
-                href={`/blog/${post.slug}`}
-              >
-                <h2 className="text-4xl font-semibold tracking-tight mb-2 group-hover:text-primary/70 transition-colors">
-                  {post.metadata.title}
-                </h2>
+              <div className="group">
+                <Link href={`/blog/${post.slug}`}>
+                  <h2 className="text-4xl font-semibold tracking-tight mb-2 group-hover:text-primary/70 transition-colors">
+                    {post.metadata.title}
+                  </h2>
+                </Link>
+                
                 <p className="text-muted-foreground leading-relaxed mb-2">
                   {post.metadata.description}
                 </p>
+                
                 <div className="flex items-center gap-2 text-muted-foreground mb-4">
                   <time>{post.metadata.publishedAt}</time>
                   <span>—</span>
                   <span>{post.metadata.readingTime} min read</span>
                 </div>
-                {post.metadata.tags && (
-                  <div className="flex flex-wrap gap-2">
-                    {post.metadata.tags.map((tag) => (
-                      <Link href={`/blog/tag/${tag}`} key={tag}>
-                        <Badge
-                        variant="secondary"
-                        className="bg-opacity-20 hover:bg-opacity-30 transition-colors cursor-pointer dark:text-black"
-                        style={{
-                          backgroundColor: getTagColor(tag)
-                        }}
-                      >
-                        {tag}
-                      </Badge>
-                      </Link>
-                    ))}
-                  </div>
-                )}
+
                 {post.metadata.coverImage && (
                   <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
                     <Image
@@ -105,8 +90,25 @@ export default async function BlogPage({
                     />
                   </div>
                 )}
-              </Link>
-              
+                
+                {post.metadata.tags && (
+                  <div className="flex flex-wrap gap-2">
+                    {post.metadata.tags.map((tag) => (
+                      <Link href={`/blog/tag/${tag}`} key={tag}>
+                        <Badge
+                          variant="secondary"
+                          className="bg-opacity-20 hover:bg-opacity-30 transition-colors cursor-pointer dark:text-black"
+                          style={{
+                            backgroundColor: getTagColor(tag)
+                          }}
+                        >
+                          {tag}
+                        </Badge>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </article>
           </BlurFade>
         ))}
