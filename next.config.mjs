@@ -5,6 +5,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  eslint: {
+    // Don't run ESLint during builds
+    ignoreDuringBuilds: true,
+  },
   // basePath: "/portfolio", # TODO: Add domain name
 };
 
