@@ -18,13 +18,20 @@ const getTagColor = (tag: string) => {
   return `hsl(${hue}, 70%, 90%)`; // Pastel colors
 };
 
+interface PageProps {
+  params?: { tag?: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
 export default async function BlogPage({ 
+  params,
+  searchParams,
   posts: propPosts, 
   tag 
-}: { 
-  posts?: Awaited<ReturnType<typeof getBlogPosts>>,
-  tag?: string 
-} = {}) {
+}: PageProps & {
+  posts?: Awaited<ReturnType<typeof getBlogPosts>>;
+  tag?: string;
+}) {
   const posts = propPosts ?? await getBlogPosts();
 
   return (

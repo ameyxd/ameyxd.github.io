@@ -11,7 +11,9 @@
     "export": "next build",
     "blog": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" ts-node src/lib/cli/blog.ts",
     "process-images": "pnpm blog process-images",
-    "watch-images": "chokidar 'content/images/**/*' -c 'pnpm process-images' -i '/(^|\\\\)\\\\../'"
+    "watch-images": "chokidar 'content/images/**/*' -c 'pnpm process-images' -i '/(^|\\\\)\\\\../'",
+    "build:test": "next build",
+    "test:all": "next build"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
