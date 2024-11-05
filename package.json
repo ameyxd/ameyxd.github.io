@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm exec concurrently \"pnpm blog watch-images\" \"next dev\"",
-    "build": "pnpm process-images && next build",
+    "build": "pnpm process-images || true && next build",
     "start": "next start",
     "lint": "next lint",
     "export": "next build",
