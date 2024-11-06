@@ -13,12 +13,12 @@ const withMDX = createMDX({
   }
 })
 
+// Define base config
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: true
   },
   reactStrictMode: true,
-  output: "export",
   images: {
     unoptimized: true,
   },
@@ -31,6 +31,16 @@ const nextConfig = {
   }
 }
 
+// Create a function that merges configs
+const buildConfig = () => {
+  const config = { ...nextConfig }
+  // Let GitHub Actions inject output if needed
+  if (process.env.GITHUB_ACTIONS) {
+    config.output = 'export'
+  }
+  return withMDX(config)
+}
+
 console.log('🟢 MDX config created')
 
-export default withMDX(nextConfig)
+export default buildConfig()
