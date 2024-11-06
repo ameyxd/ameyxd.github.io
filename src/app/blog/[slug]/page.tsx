@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
+import { MDXContent } from '@/components/mdx/MDXComponents'
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -101,10 +102,9 @@ export default async function Blog({
               {post.metadata.description}
             </p>
           </header>
-          <div
-            className="prose dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-muted-foreground prose-a:underline hover:prose-a:text-primary prose-p:text-lg prose-headings:text-4xl"
-            dangerouslySetInnerHTML={{ __html: post.source }}
-          />
+          <div className="prose dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-muted-foreground prose-a:underline hover:prose-a:text-primary prose-p:text-lg prose-headings:text-4xl">
+            <MDXContent source={post.source} />
+          </div>
         </article>
       </BlurFade>
     </div>
