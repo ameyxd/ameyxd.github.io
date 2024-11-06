@@ -1,0 +1,61 @@
+/* Add this to your globals.css */
+.prose pre {
+  background-color: hsl(var(--muted));
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.875rem;
+  line-height: 1.7142857;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose thead {
+  background-color: hsl(var(--muted));
+}
+
+.prose th,
+.prose td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.prose blockquote {
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+  border-left-width: 4px;
+  border-left-color: hsl(var(--border));
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin: 0.5rem 0;
+}
+
+.prose li::marker {
+  color: hsl(var(--muted-foreground));
+}
+
+.prose input[type="checkbox"] {
+  margin-right: 0.5rem;
+} 
