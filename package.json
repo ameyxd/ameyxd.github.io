@@ -13,7 +13,8 @@
     "process-images": "pnpm blog process-images",
     "watch-images": "chokidar 'content/images/**/*' -c 'pnpm process-images' -i '/(^|\\\\)\\\\../'",
     "build:test": "next build",
-    "test:all": "next build"
+    "test:all": "next build",
+    "ci:local": ".\\scripts\\local-ci.bat"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",

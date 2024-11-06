@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nextjs-ci:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - PNPM_HOME=/root/.local/share/pnpm
+      - STORE_PATH=/root/.local/share/pnpm/store/v3
+    volumes:
+      - pnpm_store:/root/.local/share/pnpm/store/v3
+      - next_cache:/app/.next/cache
+
+volumes:
+  pnpm_store:
+  next_cache:

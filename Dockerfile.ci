@@ -1,0 +1,32 @@
+FROM node:20-slim
+
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@8 --activate
+
+WORKDIR /app
+
+# Set store path before any pnpm commands
+ENV PNPM_HOME="/root/.local/share/pnpm"
+ENV PATH="${PNPM_HOME}:${PATH}"
+ENV STORE_PATH="/root/.local/share/pnpm/store/v3"
+RUN pnpm config set store-dir "$STORE_PATH" --global
+
+# Copy package files first
+COPY package.json pnpm-lock.yaml ./
+
+# Clean install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Now copy the rest of the files
+COPY . .
+
+# Create necessary directories
+RUN mkdir -p content/images public/images
+
+# Process images
+RUN pnpm blog process-images || true
+
+# Build with Next.js
+RUN pnpm build
+
+# The output will be in ./out directory
