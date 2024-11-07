@@ -1,11 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeStringify from "rehype-stringify";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import { unified } from "unified";
 
 export type BlogPost = {
   slug: string;
@@ -33,29 +28,10 @@ function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
-export async function markdownToHTML(markdown: string) {
-  const p = await unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypePrettyCode, {
-      // https://rehype-pretty.pages.dev/#usage
-      theme: {
-        light: "min-light",
-        dark: "min-dark",
-      },
-      keepBackground: false,
-    })
-    .use(rehypeStringify)
-    .process(markdown);
-
-  return p.toString();
-}
-
 export async function getPost(slug: string) {
   const filePath = path.join("content/posts", `${slug}.mdx`);
   let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
-  const content = await markdownToHTML(rawContent);
   
   // Calculate reading time
   const wordsPerMinute = 200;
@@ -63,10 +39,10 @@ export async function getPost(slug: string) {
   const readingTime = Math.ceil(wordCount / wordsPerMinute);
   
   return {
-    source: content,
+    source: rawContent,
     metadata: {
       ...metadata,
-      readingTime, // Add computed reading time to metadata
+      readingTime,
     },
     slug,
   } as const;

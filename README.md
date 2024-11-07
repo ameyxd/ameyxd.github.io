@@ -104,3 +104,65 @@ pnpm dev
    - Build
    - Deploy to GitHub Pages
    - Process images
+
+### 5. Development & Branch Strategy
+
+#### Branch Structure
+- `master`: Production-ready code only
+- `develop`: Integration branch for features
+- `post/*`, `feature/*`: Individual branches from develop
+
+#### New Post/Feature Workflow
+
+1. **Ensure develop is stable**
+   ```bash
+   git checkout develop
+   git pull origin develop
+   pnpm ci:local
+   git push origin develop
+   # Wait for GitHub Actions to pass
+   ```
+
+2. **Create new branch**
+   ```bash
+   git checkout -b post/your-post-name
+   # or
+   git checkout -b feature/your-feature
+   ```
+
+3. **Work on changes**
+   - Add/edit content
+   - Test locally with `pnpm dev`
+   - Run `pnpm ci:local` to test build (optional - will run automatically on push)
+
+4. **Commit and push**
+   ```bash
+   git add .
+   git commit -m "post: add new blog post about X"
+   git push origin post/your-post-name
+   ```
+   Note: Pre-push hook will automatically run CI checks before pushing
+
+5. **Create Pull Request**
+   - Create PR from your branch to `develop`
+   - Wait for GitHub Actions to pass
+   - Get review if needed
+   - Merge to develop
+
+6. **Final Production Deploy**
+   - Once develop is stable, create PR from develop to master
+   - Wait for GitHub Actions to pass
+   - Merge to master for production deployment
+
+7. **Cleanup**
+   ```bash
+   git checkout develop
+   git pull origin develop
+   git branch -d post/your-post-name
+   ```
+
+#### CI/CD Notes
+- Local CI checks run automatically before each push
+- GitHub Actions run on PRs to develop and master
+- Builds must pass before merging
+- Master branch deploys automatically to production
