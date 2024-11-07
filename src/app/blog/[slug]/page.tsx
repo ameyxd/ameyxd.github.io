@@ -86,7 +86,8 @@ export default async function Blog({
         }}
       />
       <BlurFade>
-        <article className="flex flex-col gap-8">
+      <h1 className="text-4xl font-bold mb-16 text-center">Amey's Blog</h1>
+      <article className="flex flex-col gap-8">
           <header className="flex flex-col gap-8 text-center mb-16">
             <h1 className="text-6xl font-semibold tracking-tight">
               {post.metadata.title}
