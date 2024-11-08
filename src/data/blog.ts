@@ -10,6 +10,7 @@ export type BlogPost = {
     description: string;
     readingTime: number;
     tags: string[];
+    coverImage?: string;
   };
   content: string;
 };

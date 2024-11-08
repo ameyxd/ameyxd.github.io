@@ -1,6 +1,33 @@
 # Known Issues & Future Improvements
 
-## Embedding Issues
+## Latest Resolutions [2024-03-20]
+### Resume/About Page
+- ✅ Download Button Styling (Metallic gradient with dark mode)
+- ✅ Section Navigation (Active section highlighting)
+- ✅ Mobile Badge Layout (Responsive design)
+- ✅ Footer Location Display (Added pulse animation)
+- ✅ Timeline-style bullets implementation
+- ✅ Section header consistency
+- ✅ Mobile responsiveness improvements
+- ✅ BlurFade animations
+
+## Resolved Issues
+
+### 1. Section Navigation
+**Status:** ✅ Fixed
+**Solution Implemented:** Added intersection observer for active section highlighting
+
+### 2. Mobile Responsiveness
+**Problem:** Badge layout in ResumeCard needs improvement on mobile
+**Status:** ✅ Fixed
+**Solution Implemented:** Updated flex layout and spacing for mobile view
+
+### 3. Download Button Styling
+**Status:** ✅ Fixed
+**Solution Implemented:** Added metallic gradient style with proper dark mode support
+
+
+## Active Issues
 
 ### 1. TikTok Shortlink Resolution
 **Problem:** TikTok shortlinks (e.g., `tiktok.com/t/ZTFchR8Pk`) cannot be parsed directly as they need to be resolved to their full URL format first.
@@ -28,6 +55,15 @@
 - Consider using Twitter's official widget settings
 
 **Priority:** High
+
+### 3. Mobile Padding Refinement
+**Problem:** Mobile padding still needs improvement for optimal reading experience
+**Priority:** Medium
+
+### 4. Bottom Navbar Styling
+**Problem:** Bottom navbar hover effects and scaling animations need to match original design and include strava activity #TODO
+**Priority:** High
+
 
 ---
 
