@@ -3,6 +3,7 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
   name: "Amey Ambade",
+  firstname: "Amey",
   initials: "AA",
   url: "https://heyamey.com",
   location: "Houston, TX",
@@ -10,7 +11,7 @@ export const DATA = {
   description:
     "Senior Data Scientist and Machine Learning Engineer. I love building software, lifting, yapping and giving to the community.",
   summary:
-    "I've been coding since I was 12 years old. I have [masters and bachelors degrees in computer science](/#education), have lived in 3 different countries, and worked at multiple Fortune 500 companies. I am very passionate about ML/AI research in the energy sector, AI ethics, open source development and volunteering.",
+    "I've been coding since I was 12 years old. I have masters and bachelors degrees in computer science, have lived in 3 different countries, and worked at multiple Fortune 500 companies. I work on ML/AI research in the energy sector, AI ethics, open source development and volunteering.",
   avatarUrl: "/me.png",
   skills: [
     "Python",
@@ -380,15 +381,15 @@ export const DATA = {
       role: "Panelist",
       event: "Dell Dataiku Data Science Connect",
       conference: "",
-      year: "",
-      location: "",
+      year: 2022,
+      location: "Houston, TX",
     },
     {
       role: "Speaker",
       event: "Computer Vision through a Magnifying Glass",
       conference: "DataCan",
       year: 2022,
-      location: "",
+      location: "Online",
     },
   ],
 

@@ -66,34 +66,7 @@ export default async function Blog({
   return (
     <>
       {/* Global sticky header - visible on all screens */}
-      <div className="sticky top-6 z-50 w-full">
-        <div className="max-w-[1600px] mx-auto px-4">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 py-4 rounded-lg bg-background/80 backdrop-blur-sm">
-            <Link 
-              href="/blog" 
-              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-              <span className="text-lg font-medium">Amey's Blog</span>
-            </Link>
-            {/* TODOCan add title persisting in sticky header if needed */}
-            {/* <h2 className="text-sm font-medium truncate max-w-full sm:max-w-[50%] mt-2 sm:mt-0">
-              {post.metadata.title}
-            </h2> */}
-          </div>
-        </div>
-      </div>
+      
       {/* Add cover image if it exists */}
       {post.metadata.coverImage && (
         <div className="relative w-full h-64 mb-8">
