@@ -69,15 +69,25 @@ export function Embed({ url }: EmbedProps) {
           <iframe
             ref={iframeRef}
             src={`https://platform.twitter.com/embed/Tweet.html?id=${id}&dnt=true`}
+            className="w-full min-h-[500px]"
             style={{
-              width: '100%',
-              minHeight: '660px',
               maxWidth: '550px',
               margin: '0 auto',
+              border: 'none',
             }}
-            frameBorder="0"
             loading="lazy"
             scrolling="no"
+            onLoad={() => {
+              if (iframeRef.current?.contentWindow && iframeRef.current?.contentDocument?.body) {
+                const resizeObserver = new ResizeObserver(() => {
+                  if (iframeRef.current?.contentDocument?.body) {
+                    iframeRef.current.style.height = 
+                      iframeRef.current.contentDocument.body.scrollHeight + 'px';
+                  }
+                });
+                resizeObserver.observe(iframeRef.current.contentDocument.body);
+              }
+            }}
           />
         </div>
       );

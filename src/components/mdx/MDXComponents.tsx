@@ -3,6 +3,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { remarkUrlToEmbed } from '@/lib/remarkUrlToEmbed'
 import { remarkTables } from '@/lib/remarkTables'
 import { remarkLists } from '@/lib/remarkLists'
+import dynamic from 'next/dynamic'
 
 // Separate components into two groups
 const embedComponents = {
@@ -24,7 +25,7 @@ const markdownComponents = {
   li: ({ children, checked }: { children: React.ReactNode, checked?: boolean }) => {
     if (checked !== undefined) {
       return (
-        <li className="flex items-start gap-2 my-1">
+        <li className="flex items-start gap-2 my-1 list-none">
           <input 
             type="checkbox" 
             checked={checked} 
@@ -42,6 +43,21 @@ const markdownComponents = {
       {children}
     </ul>
   ),
+  img: dynamic(() => Promise.resolve(({ src, alt }: { src: string; alt: string }) => (
+    <div className="not-prose my-8">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img 
+        src={src} 
+        alt={alt} 
+        className="rounded-lg mx-auto" 
+      />
+      {alt && (
+        <span className="block text-center text-sm text-muted-foreground mt-2 italic">
+          {alt}
+        </span>
+      )}
+    </div>
+  )), { ssr: false }),
 }
 
 // Combine components
