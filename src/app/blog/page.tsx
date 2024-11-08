@@ -35,13 +35,13 @@ export default async function BlogPage({
   const posts = propPosts ?? await getBlogPosts();
 
   return (
-    <div className="max-w-[700px] mx-auto">
+    <div className="container-wide py-8 md:py-16">
       {/* Title of blog */}
       <BlurFade delay={BLUR_FADE_DELAY}>
-        <header className="text-center mb-16">
+        <header className="text-center mb-8 md:mb-16">
           {tag ? (
             <div className="space-y-4">
-              <h1 className="text-4xl font-semibold tracking-tight">
+              <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
                 Amey's Blog
               </h1>
               <div className="flex items-center justify-center gap-2 text-xl">
@@ -58,14 +58,14 @@ export default async function BlogPage({
               </div>
             </div>
           ) : (
-            <h1 className="text-6xl font-semibold tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
               Amey's Blog
             </h1>
           )}
         </header>
       </BlurFade>
       
-      <section className="flex flex-col gap-8">
+      <section className="flex flex-col gap-8 md:gap-12">
         {posts.map((post, id) => (
           <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
             <article className="flex flex-col">
