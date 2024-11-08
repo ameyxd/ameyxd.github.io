@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "format-posts": "node scripts/format-posts.js",
     "dev": "pnpm exec concurrently \"pnpm blog watch-images\" \"next dev\"",
-    "build": "pnpm process-images || true && next build",
+    "build": "pnpm format-posts && pnpm process-images || true && next build",
     "start": "next start",
     "lint": "next lint",
     "export": "next build",
