@@ -14,7 +14,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   // Add basePath configuration
-  basePath: "/focus",
+  // basePath: "/focus",
 };
 
 export default nextConfig;
