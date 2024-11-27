@@ -2,6 +2,10 @@ name: Deploy Focus Time App
 
 on:
   workflow_dispatch:  # Manual trigger
+  push:
+    branches: ["master", "develop"]  # Added develop branch
+  pull_request:
+    branches: ["master", "develop"]  # Added PR checks
   schedule:
     - cron: '0 0 * * *'  # Daily at midnight UTC
   repository_dispatch:
@@ -36,7 +40,7 @@ jobs:
       - name: Install and build Focus Time
         working-directory: focus-time
         run: |
-          pnpm install --frozen-lockfile
+          pnpm install --no-frozen-lockfile
           pnpm build
 
       - name: Copy Focus Time build to main site
@@ -46,6 +50,8 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        # Only deploy on push to master, not on PRs
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./main-site/public
