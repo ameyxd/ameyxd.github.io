@@ -50,8 +50,9 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        # Only deploy on push to master, not on PRs
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: |
+          github.event_name == 'workflow_dispatch' ||
+          (github.event_name == 'push' && github.ref == 'refs/heads/master')
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./main-site/public
