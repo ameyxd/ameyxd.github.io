@@ -13,7 +13,8 @@ const nextConfig = {
     // Don't run ESLint during builds
     ignoreDuringBuilds: true,
   },
-  // basePath: "/portfolio", # TODO: Add domain name
+  // Add basePath configuration
+  // basePath: "/focus",
 };
 
 export default nextConfig;
