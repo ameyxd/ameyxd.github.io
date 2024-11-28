@@ -48,9 +48,20 @@ jobs:
           mkdir -p main-site/public/focus
           cp -r focus-time/out/* main-site/public/focus/
 
+      - name: Create .nojekyll file
+        run: |
+          touch main-site/public/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./main-site/public
-          keep_files: true 
+          publish_dir: ./main-site/public/focus
+          destination_dir: focus
+          keep_files: true
+
+      - name: Verify deployment
+        run: |
+          echo "Checking if files exist in the correct location..."
+          ls -la main-site/public/focus/
+          echo "Files will be deployed to: focus/" 
