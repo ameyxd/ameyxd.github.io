@@ -69,6 +69,26 @@ jobs:
       - name: Build with Next.js
         run: pnpm build
 
+      - name: Preserve Focus app files
+        run: |
+          if [ -d ".next/static" ]; then
+            echo "Backing up Focus app files..."
+            mkdir -p focus-backup
+            [ -d "public/focus" ] && cp -r public/focus/* focus-backup/
+          fi
+
+      - name: Static HTML export with Next.js
+        run: pnpm export
+
+      - name: Restore Focus app files
+        run: |
+          if [ -d "focus-backup" ]; then
+            echo "Restoring Focus app files..."
+            mkdir -p out/focus
+            cp -r focus-backup/* out/focus/
+            rm -rf focus-backup
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -6,10 +6,10 @@ on:
     branches: ["master", "develop"]  # Added develop branch
   pull_request:
     branches: ["master", "develop"]  # Added PR checks
-  schedule:
-    - cron: '0 0 * * *'  # Daily at midnight UTC
-  repository_dispatch:
-    types: [focus-app-update]
+  # schedule:
+  #   - cron: '0 0 * * *'  # Daily at midnight UTC
+  # repository_dispatch:
+  #   types: [focus-app-update]
 
 jobs:
   deploy-focus:
@@ -24,6 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ameyxd/focus-time
+          token: ${{ secrets.GH_PAT }}  # Make sure you have this secret set
           path: focus-time
 
       - name: Setup Node
@@ -41,12 +42,38 @@ jobs:
         working-directory: focus-time
         run: |
           pnpm install --no-frozen-lockfile
+          # Ensure public URL is set correctly
+          echo "NEXT_PUBLIC_BASE_PATH=/focus" >> .env.local
           pnpm build
+
+      - name: Debug build output
+        working-directory: focus-time
+        run: |
+          echo "Listing build output contents:"
+          ls -la out/
 
       - name: Copy Focus Time build to main site
         run: |
+          rm -rf main-site/public/focus
           mkdir -p main-site/public/focus
           cp -r focus-time/out/* main-site/public/focus/
+          # Create a marker file to indicate focus app is deployed
+          touch main-site/public/focus/.focus-app-deployed
+          echo "Listing focus directory contents:"
+          ls -la main-site/public/focus/
+
+      - name: Configure Git
+        run: |
+          cd main-site
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+      - name: Commit and push Focus app changes
+        run: |
+          cd main-site
+          git add public/focus
+          git commit -m "Update Focus app build" || echo "No changes to commit"
+          git push origin main
 
       - name: Create .nojekyll file
         run: |
@@ -64,4 +91,4 @@ jobs:
         run: |
           echo "Checking if files exist in the correct location..."
           ls -la main-site/public/focus/
-          echo "Files will be deployed to: focus/" 
+          echo "Files will be deployed to: focus/"
