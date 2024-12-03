@@ -67,13 +67,16 @@ jobs:
           cd main-site
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git fetch origin
+          git checkout master
+          git pull origin master
 
       - name: Commit and push Focus app changes
         run: |
           cd main-site
           git add public/focus
           git commit -m "Update Focus app build" || echo "No changes to commit"
-          git push origin main
+          git push origin master
 
       - name: Create .nojekyll file
         run: |
