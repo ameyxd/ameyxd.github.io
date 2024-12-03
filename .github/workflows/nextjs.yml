@@ -69,6 +69,26 @@ jobs:
       - name: Build with Next.js
         run: pnpm build
 
+      - name: Preserve Focus app files
+        run: |
+          if [ -d ".next/static" ]; then
+            echo "Backing up Focus app files..."
+            mkdir -p focus-backup
+            [ -d "public/focus" ] && cp -r public/focus/* focus-backup/
+          fi
+
+      - name: Static HTML export with Next.js
+        run: pnpm export
+
+      - name: Restore Focus app files
+        run: |
+          if [ -d "focus-backup" ]; then
+            echo "Restoring Focus app files..."
+            mkdir -p out/focus
+            cp -r focus-backup/* out/focus/
+            rm -rf focus-backup
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -76,11 +96,11 @@ jobs:
 
   deploy:
     environment:
-      name: github-pages
+      name: ${{ github.event_name == 'pull_request' && format('preview-{0}', github.event.number) || 'github-pages' }}
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/master'
+    if: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/master' }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

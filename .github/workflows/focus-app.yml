@@ -6,10 +6,10 @@ on:
     branches: ["master", "develop"]  # Added develop branch
   pull_request:
     branches: ["master", "develop"]  # Added PR checks
-  schedule:
-    - cron: '0 0 * * *'  # Daily at midnight UTC
-  repository_dispatch:
-    types: [focus-app-update]
+  # schedule:
+  #   - cron: '0 0 * * *'  # Daily at midnight UTC
+  # repository_dispatch:
+  #   types: [focus-app-update]
 
 jobs:
   deploy-focus:
@@ -24,6 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ameyxd/focus-time
+          token: ${{ secrets.GH_PAT }}
           path: focus-time
 
       - name: Setup Node
@@ -41,27 +42,29 @@ jobs:
         working-directory: focus-time
         run: |
           pnpm install --no-frozen-lockfile
+          echo "NEXT_PUBLIC_BASE_PATH=/focus" >> .env.local
           pnpm build
+
+      - name: Debug build output
+        working-directory: focus-time
+        run: |
+          echo "Listing build output contents:"
+          ls -la out/
 
       - name: Copy Focus Time build to main site
         run: |
+          rm -rf main-site/public/focus
           mkdir -p main-site/public/focus
           cp -r focus-time/out/* main-site/public/focus/
+          echo "Listing focus directory contents:"
+          ls -la main-site/public/focus/
 
       - name: Create .nojekyll file
         run: |
           touch main-site/public/.nojekyll
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./main-site/public/focus
-          destination_dir: focus
-          keep_files: true
-
-      - name: Verify deployment
+      - name: Verify files
         run: |
           echo "Checking if files exist in the correct location..."
           ls -la main-site/public/focus/
-          echo "Files will be deployed to: focus/" 
+          echo "Files are ready for deployment via the main Next.js workflow"
