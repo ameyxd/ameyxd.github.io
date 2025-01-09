@@ -1,11 +1,14 @@
+// Copyright (c) 2024 Amey Ambade
+// Licensed under the MIT License
+
 import { getBlogPosts, getPost } from "@/data/blog";
 import { DATA } from "@/data/resume";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
-import { MDXContent } from '@/components/mdx/MDXComponents'
-import Link from 'next/link';
+import { MDXContent } from '@/components/mdx/MDXComponents';
+import { TableOfContents } from '@/components/blog/TableOfContents';
 import Image from 'next/image';
 
 export async function generateStaticParams() {
@@ -64,10 +67,7 @@ export default async function Blog({
   }
 
   return (
-    <>
-      {/* Global sticky header - visible on all screens */}
-      
-      {/* Add cover image if it exists */}
+    <div className="relative min-h-screen">
       {post.metadata.coverImage && (
         <div className="relative w-full h-64 mb-8">
           <Image
@@ -80,8 +80,10 @@ export default async function Blog({
         </div>
       )}
 
-
-      <div className="max-w-[700px] mx-auto relative pt-16">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-16">
+        {/* TODO: Add table of contents */}
+        {/* <TableOfContents source={post.source} /> */}
+        
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -107,26 +109,26 @@ export default async function Blog({
         <BlurFade>
           <article className="flex flex-col gap-8">
             <header className="flex flex-col gap-8 text-center mb-16">
-              <h1 className="text-6xl font-semibold tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight">
                 {post.metadata.title}
               </h1>
-              <div className="flex items-center justify-center gap-2 text-muted-foreground text-lg">
+              <div className="flex items-center justify-center gap-2 text-muted-foreground text-base sm:text-lg">
                 <Suspense fallback={<p className="h-5" />}>
                   <time>{post.metadata.publishedAt}</time>
                   <span>—</span>
                   <span>{post.metadata.readingTime} min read</span>
                 </Suspense>
               </div>
-              <p className="text-2xl text-muted-foreground leading-relaxed">
+              <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed">
                 {post.metadata.description}
               </p>
             </header>
-            <div className="prose dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-muted-foreground prose-a:underline hover:prose-a:text-primary prose-p:text-lg prose-headings:text-4xl">
+            <div className="prose dark:prose-invert max-w-none prose-headings:scroll-mt-20 prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-muted-foreground prose-a:underline hover:prose-a:text-primary">
               <MDXContent source={post.source} />
             </div>
           </article>
         </BlurFade>
       </div>
-    </>
+    </div>
   );
 }
