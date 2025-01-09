@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: "",
   typescript: {
     // Skip type checking during build
     ignoreBuildErrors: true
