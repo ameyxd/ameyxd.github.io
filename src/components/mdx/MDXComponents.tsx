@@ -3,7 +3,6 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { remarkUrlToEmbed } from '@/lib/remarkUrlToEmbed'
 import { remarkTables } from '@/lib/remarkTables'
 import { remarkLists } from '@/lib/remarkLists'
-import rehypeSlug from 'rehype-slug'
 import dynamic from 'next/dynamic'
 
 // Separate components into two groups
@@ -44,25 +43,7 @@ const markdownComponents = {
       {children}
     </ul>
   ),
-  // h1: ({ children }: { children: React.ReactNode }) => (
-  //   <h1 className="scroll-m-20 text-4xl font-bold tracking-tight mt-8 mb-4">{children}</h1>
-  // ),
-  // h2: ({ children }: { children: React.ReactNode }) => (
-  //   <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mt-10 mb-4">{children}</h2>
-  // ),
-  // h3: ({ children }: { children: React.ReactNode }) => (
-  //   <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8 mb-4">{children}</h3>
-  // ),
-  // h4: ({ children }: { children: React.ReactNode }) => (
-  //   <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-6 mb-4">{children}</h4>
-  // ),
-  // h5: ({ children }: { children: React.ReactNode }) => (
-  //   <h5 className="scroll-m-20 text-lg font-semibold tracking-tight mt-6 mb-3">{children}</h5>
-  // ),
-  // h6: ({ children }: { children: React.ReactNode }) => (
-  //   <h6 className="scroll-m-20 text-base font-semibold tracking-tight mt-6 mb-3">{children}</h6>
-  // ),
-    img: dynamic(() => Promise.resolve(({ src, alt }: { src: string; alt: string }) => (
+  img: dynamic(() => Promise.resolve(({ src, alt }: { src: string; alt: string }) => (
     <div className="not-prose my-8">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
@@ -94,7 +75,7 @@ export function MDXContent({ source }: { source: string }) {
         parseFrontmatter: true,
         mdxOptions: {
           remarkPlugins: [remarkTables, remarkLists, remarkUrlToEmbed],
-          rehypePlugins: [[rehypeSlug, {}]],
+          rehypePlugins: [],
         }
       }}
     />
