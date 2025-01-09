@@ -1,7 +1,7 @@
 FROM node:20-slim
 
 # Install pnpm
-RUN corepack enable && corepack prepare pnpm@9.14.4 --activate
+RUN corepack enable && corepack prepare pnpm@8 --activate
 
 WORKDIR /app
 
