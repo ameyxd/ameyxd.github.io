@@ -65,5 +65,9 @@ async function getAllPosts(dir: string) {
 }
 
 export async function getBlogPosts() {
-  return getAllPosts(path.join(process.cwd(), "content/posts/"));
+  // return getAllPosts(path.join(process.cwd(), "content/posts/"));
+  const posts = await getAllPosts(path.join(process.cwd(), "content/posts/"));
+  return posts.sort((a, b) => 
+    new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+  );
 }
