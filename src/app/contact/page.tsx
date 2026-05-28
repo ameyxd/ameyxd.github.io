@@ -57,7 +57,27 @@ export default function ContactPage() {
             </a>
           </div>
         </div>
+
+        {/* Subscribe to newsletter */}
+        <div className="mt-16 md:mt-24">
+          <h2 className="text-2xl font-display font-semibold mb-2">Subscribe to my writing</h2>
+          <p className="text-muted-foreground mb-6 max-w-2xl">
+            Essays on machine learning, the energy sector, books I&apos;m thinking
+            with, and the occasional digression. New posts land in your inbox a
+            few times a month.
+          </p>
+          <div className="rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm p-2 max-w-xl">
+            <iframe
+              src="https://heyamey.substack.com/embed"
+              width="100%"
+              height="320"
+              style={{ border: "none", background: "transparent" }}
+              scrolling="no"
+              title="Subscribe to Amey&apos;s Substack"
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
-} 
+}

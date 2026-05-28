@@ -63,6 +63,18 @@ export const DATA = {
         icon: Icons.spotify,
         navbar: true,
       },
+      Substack: {
+        name: "Substack",
+        url: "https://heyamey.substack.com/",
+        icon: Icons.substack,
+        navbar: true,
+      },
+      X: {
+        name: "X",
+        url: "https://twitter.com/ameyxd",
+        icon: Icons.x,
+        navbar: true,
+      },
       email: {
         name: "Send Email",
         url: "mailto:ameyambade@gmail.com",
