@@ -17,8 +17,12 @@ export default async function HomePage() {
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
-              <h1 className="text-4xl md:text-7xl font-bold tracking-tight">
-                Hey, I'm {siteConfig.firstname} 👋🏽 
+              <h1 className="text-4xl md:text-7xl font-display font-semibold tracking-tight">
+                Hey, I&apos;m{" "}
+                <span className="underline decoration-accent-brand decoration-4 underline-offset-8 md:decoration-[6px] md:underline-offset-[12px]">
+                  {siteConfig.firstname}
+                </span>{" "}
+                👋🏽
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl">
                 {siteConfig.description}
@@ -59,7 +63,7 @@ export default async function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Recent Posts - Now with cover images */}
           <div className="lg:col-span-2 space-y-8">
-            <h2 className="text-3xl font-semibold mb-8">Recent Posts</h2>
+            <h2 className="text-3xl font-display font-semibold mb-8">Recent Posts</h2>
             {posts.slice(0, 3).map((post, idx) => (
               <BlurFade key={post.slug} delay={0.1 * idx}>
                 <article className="group relative rounded-xl bg-card/30 hover:bg-card/50 backdrop-blur-sm transition-colors overflow-hidden">
@@ -97,7 +101,7 @@ export default async function HomePage() {
           <div className="space-y-8">
             {/* Current Work/Status */}
             <div className="p-8 rounded-xl bg-card/30 backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold mb-6">Currently</h2>
+              <h2 className="text-2xl font-display font-semibold mb-6">Currently</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p className="flex items-center gap-2">
                   <span className="text-xl">🔭</span>
@@ -116,7 +120,7 @@ export default async function HomePage() {
 
             {/* Quick Links */}
             <div className="p-8 rounded-xl bg-card/30 backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold mb-6">Quick Links</h2>
+              <h2 className="text-2xl font-display font-semibold mb-6">Quick Links</h2>
               <div className="space-y-3">
                 <Link href="/projects" className="block text-muted-foreground hover:text-primary transition-colors">
                   Projects
@@ -134,7 +138,7 @@ export default async function HomePage() {
 
         {/* Hobbies Section */}
         <section className="mt-24">
-          <h2 className="text-3xl font-semibold mb-8">Hobbies & Interests</h2>
+          <h2 className="text-3xl font-display font-semibold mb-8">Hobbies & Interests</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {hobbies.map((hobby, idx) => (
               <div

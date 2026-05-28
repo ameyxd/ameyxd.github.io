@@ -14,7 +14,7 @@ export default function ProjectsPage() {
     <div className="container-wide py-8 md:py-16">
       <BlurFade delay={BLUR_FADE_DELAY}>
         <header className="mb-12 md:mb-16">
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-display font-semibold tracking-tight">
             Projects
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">

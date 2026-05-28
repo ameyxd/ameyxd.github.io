@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/TopNavbar";
 import { DATA } from "@/data/resume";
@@ -8,7 +7,7 @@ import { Icons } from "@/components/icons";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site";
 import { Dock, DockIcon } from "@/components/magicui/dock";
-const inter = Inter({ subsets: ["latin"] });
+import { fontVariables } from "@/config/fonts";
 
 export default function RootLayout({
   children,
@@ -17,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${fontVariables} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -36,7 +35,7 @@ export default function RootLayout({
               <div className="flex flex-col md:flex-row gap-2">
                 <span>© {new Date().getFullYear()} {siteConfig.name}</span>
                 <div className="flex items-center gap-2">
-                  <div className="size-2 rounded-full bg-emerald-500 animate-pulse [animation-duration:1s]" />
+                  <div className="size-2 rounded-full bg-accent-brand animate-pulse [animation-duration:1s]" />
                   <span>{DATA.location}</span>
                 </div>
               </div>
