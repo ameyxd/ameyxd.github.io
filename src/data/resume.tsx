@@ -165,6 +165,85 @@ export const DATA = {
       end: "2017",
     },
   ],
+  projects: [
+    {
+      title: "petromcp",
+      href: "https://github.com/ameyxd/petromcp",
+      dates: "May 2026 - Present",
+      active: true,
+      description:
+        "MCP server that exposes petroleum data formats to Claude. v0.2 ships LAS; DLIS, SEG-Y, and pump cards next. Bridges traditional energy data into the LLM tool-use ecosystem.",
+      tags: ["MCP", "Python", "Claude", "Energy", "LLM"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/ameyxd/petromcp",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "specwarden",
+      href: "https://github.com/ameyxd/specwarden",
+      dates: "May 2026 - Present",
+      active: true,
+      description:
+        "Forces a written spec before any code change and logs every edit with a backlink. Hook-based enforcement; complementary to GitHub's spec-kit.",
+      tags: ["Python", "Developer Tools", "Hooks", "Spec-Driven"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/ameyxd/specwarden",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "obsidian-tiktoker",
+      href: "https://github.com/ameyxd/obsidian-tiktoker",
+      dates: "Nov 2024 - Present",
+      active: true,
+      description:
+        "A TikTok parser and saver for Obsidian. Captures video metadata, captions, and links into your vault as structured notes.",
+      tags: ["TypeScript", "Obsidian", "Plugin"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/ameyxd/obsidian-tiktoker",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "Focus Time",
+      href: "/focus",
+      dates: "Nov 2024 - Present",
+      active: true,
+      description:
+        "A minimalist focus timer for deep work sessions. Separate Next.js app deployed as a subdirectory of this site.",
+      tags: ["TypeScript", "Next.js", "Productivity"],
+      links: [
+        {
+          type: "Website",
+          href: "/focus",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/ameyxd/focus-time",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+  ],
   patents: [
     {
       title: " Machine Learning Model Operationalization Management Framework for Continuous Updates on IIoT Devices",

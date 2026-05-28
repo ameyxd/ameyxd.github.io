@@ -8,13 +8,19 @@ import { useState } from "react";
 
 const NavItems = () => (
   <>
-    <Link 
+    <Link
       href="/blog"
       className="text-muted-foreground hover:text-foreground transition-colors"
     >
       Blog
     </Link>
-    <Link 
+    <Link
+      href="/projects"
+      className="text-muted-foreground hover:text-foreground transition-colors"
+    >
+      Projects
+    </Link>
+    <Link
       href="/about"
       className="text-muted-foreground hover:text-foreground transition-colors"
     >
