@@ -35,7 +35,6 @@ export const DATA = {
   ],
   contact: {
     email: "ameyambade@gmail.com",
-    tel: "+123456789",
     social: {
       GitHub: {
         name: "GitHub",
@@ -164,97 +163,6 @@ export const DATA = {
       logoUrl: "/iiti.png",
       start: "2013",
       end: "2017",
-    },
-  ],
-  projects: [ // TODO: Add projects
-    {
-      title: "ABC",
-      href: "https://abc.com",
-      dates: "Jan 2020 - Feb 2024",
-      active: true,
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://abc.com",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video:
-        "https://temp.mp4",
-    },
-    {
-      title: "DEF",
-      href: "https://DEF.com",
-      dates: "May 2024 - Present",
-      active: true,
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://def.com",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/ameyxd",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "https://temp.mp4",
-    }
-  ],
-  hackathons: [
-    { // TODO: Add more hackathons
-      title: "Competition",
-      dates: "March 2024",
-      location: "Chicago, IL",
-      description: "Competition",
-      image:
-        "/temp.png",
-      win: "Winner",
-      links: [
-        {
-          title: "Substack Article",
-          icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://substack.com/temp",
-        },
-        {
-          title: "Poster Link",
-          icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://lorempixel.com/640/480",
-        },
-        {
-          title: "YouTube",
-          icon: <Icons.youtube className="h-4 w-4" />,
-          href: "https://www.youtube.com/",
-        },
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/ameyxd",
-        },
-      ],
     },
   ],
   patents: [

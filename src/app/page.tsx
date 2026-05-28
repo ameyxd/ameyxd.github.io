@@ -132,18 +132,17 @@ export default async function HomePage() {
           </div>
         </div>
 
-        Hobbies Section
+        {/* Hobbies Section */}
         <section className="mt-24">
           <h2 className="text-3xl font-semibold mb-8">Hobbies & Interests</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {hobbies.map((hobby, idx) => (
-              <Link 
-                key={idx} 
-                href={`/hobbies/${hobby.toLowerCase().replace(/\s+/g, '-')}`}
-                className="p-6 rounded-xl bg-card/30 hover:bg-card/50 backdrop-blur-sm transition-all hover:scale-[1.02]"
+              <div
+                key={idx}
+                className="p-6 rounded-xl bg-card/30 backdrop-blur-sm"
               >
                 <h3 className="text-xl font-semibold mb-2">{hobby}</h3>
-              </Link>
+              </div>
             ))}
           </div>
         </section>

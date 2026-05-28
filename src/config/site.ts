@@ -1,5 +1,5 @@
 import { DATA } from "@/data/resume";
-import { describe } from "node:test";
+
 export const siteConfig = {
   name: "Amey Ambade",
   firstname: DATA.firstname,
