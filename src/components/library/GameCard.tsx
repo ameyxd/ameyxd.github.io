@@ -1,6 +1,6 @@
-import Image from "next/image";
 import type { Game } from "@/data/gaming";
 import { AnimatedCheckmark } from "./AnimatedCheckmark";
+import { LiveDot } from "./LiveDot";
 import { cn } from "@/lib/utils";
 
 type Variant = "completed" | "currentlyPlaying";
@@ -9,28 +9,6 @@ interface Props {
   game: Game;
   variant: Variant;
   className?: string;
-}
-
-function CoverThumb({ game }: { game: Game }) {
-  if (game.cover) {
-    return (
-      <div className="relative size-12 md:size-14 shrink-0 rounded overflow-hidden bg-muted">
-        <Image
-          src={game.cover}
-          alt={`${game.title} cover`}
-          fill
-          sizes="56px"
-          className="object-cover"
-        />
-      </div>
-    );
-  }
-  const initial = game.title.trim().charAt(0).toUpperCase();
-  return (
-    <div className="size-12 md:size-14 shrink-0 rounded bg-accent-brand/15 text-accent-brand flex items-center justify-center font-display font-semibold text-xl">
-      {initial}
-    </div>
-  );
 }
 
 function Stars({ rating }: { rating: NonNullable<Game["rating"]> }) {
@@ -60,23 +38,28 @@ export function GameCard({ game, variant, className }: Props) {
     <article
       className={cn(
         "group flex items-start gap-4 py-4",
-        isCompleted
-          ? "border-b border-border/40 last:border-0"
-          : "p-4 rounded-xl bg-card/30 backdrop-blur-sm",
+        isCompleted && "border-b border-border/40 last:border-0",
         className,
       )}
     >
-      {isCompleted ? (
-        <div className="text-accent-brand pt-1">
-          <AnimatedCheckmark />
-        </div>
-      ) : (
-        <CoverThumb game={game} />
-      )}
+      <div className="text-accent-brand pt-1">
+        {isCompleted ? <AnimatedCheckmark /> : <LiveDot />}
+      </div>
 
       <div className="flex-1 min-w-0">
         <h3 className="font-display text-lg md:text-xl font-semibold leading-tight">
-          {game.title}
+          {game.link ? (
+            <a
+              href={game.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent-brand transition-colors"
+            >
+              {game.title}
+            </a>
+          ) : (
+            game.title
+          )}
         </h3>
         <p className="text-sm text-muted-foreground mt-0.5">{game.platform}</p>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-xs text-muted-foreground tabular-nums">

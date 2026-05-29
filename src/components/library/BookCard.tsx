@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Book } from "@/data/library";
 import { AnimatedCheckmark } from "./AnimatedCheckmark";
+import { LiveDot } from "./LiveDot";
 import { cn } from "@/lib/utils";
 
 type Variant = "read" | "currentlyReading";
@@ -10,29 +10,6 @@ interface Props {
   book: Book;
   variant: Variant;
   className?: string;
-}
-
-function CoverThumb({ book }: { book: Book }) {
-  if (book.cover) {
-    return (
-      <div className="relative size-12 md:size-14 shrink-0 rounded overflow-hidden bg-muted">
-        <Image
-          src={book.cover}
-          alt={`${book.title} cover`}
-          fill
-          sizes="56px"
-          className="object-cover"
-        />
-      </div>
-    );
-  }
-  // Fallback: title-initial block tinted with the accent
-  const initial = book.title.trim().charAt(0).toUpperCase();
-  return (
-    <div className="size-12 md:size-14 shrink-0 rounded bg-accent-brand/15 text-accent-brand flex items-center justify-center font-display font-semibold text-xl">
-      {initial}
-    </div>
-  );
 }
 
 function Stars({ rating }: { rating: NonNullable<Book["rating"]> }) {
@@ -68,17 +45,13 @@ export function BookCard({ book, variant, className }: Props) {
     <article
       className={cn(
         "group flex items-start gap-4 py-4",
-        isRead ? "border-b border-border/40 last:border-0" : "p-4 rounded-xl bg-card/30 backdrop-blur-sm",
+        isRead && "border-b border-border/40 last:border-0",
         className,
       )}
     >
-      {isRead ? (
-        <div className="text-accent-brand pt-1">
-          <AnimatedCheckmark />
-        </div>
-      ) : (
-        <CoverThumb book={book} />
-      )}
+      <div className="text-accent-brand pt-1">
+        {isRead ? <AnimatedCheckmark /> : <LiveDot />}
+      </div>
 
       <div className="flex-1 min-w-0">
         <h3 className="font-display text-lg md:text-xl font-semibold leading-tight">
@@ -111,7 +84,10 @@ export function BookCard({ book, variant, className }: Props) {
 
   if (book.link) {
     return (
-      <Link href={book.link} className="block transition-colors hover:bg-card/40 rounded-lg px-2 -mx-2">
+      <Link
+        href={book.link}
+        className="block transition-colors hover:bg-card/40 rounded-lg px-2 -mx-2"
+      >
         {content}
       </Link>
     );

@@ -14,12 +14,33 @@
 // only need to repeat them here if you want them in the "Doing" bullets.
 // ---------------------------------------------------------------------------
 
-export const now = {
+export type DoingItem = {
+  emoji: string;
+  text: string;
+  href?: string;
+};
+
+export const now: { updatedAt: string; currentlyDoing: DoingItem[] } = {
   updatedAt: "2026-05-29",
 
   currentlyDoing: [
     { emoji: "🔧", text: "Building heyamey.com v2" },
-    { emoji: "📖", text: "Reading Kitchen Confidential" },
-    { emoji: "🎮", text: "Playing Elden Ring DLC" },
+    {
+      emoji: "🔨",
+      text: "Building specwarden",
+      href: "https://github.com/ameyxd/specwarden",
+    },
+    {
+      emoji: "🤖",
+      text: "Building agentic workflows at Dataiku",
+      href: "https://linkedin.com/in/ameyxd",
+    },
+    {
+      emoji: "🎙️",
+      text: "Hosting SE Radio Podcast",
+      href: "https://se-radio.net/team/",
+    },
+    { emoji: "🥌", text: "Playing curling" },
+    { emoji: "🧘", text: "Practicing zen meditation" },
   ],
 };

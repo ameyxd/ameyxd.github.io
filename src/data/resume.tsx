@@ -73,7 +73,7 @@ export const DATA = {
         name: "X",
         url: "https://twitter.com/ameyxd",
         icon: Icons.x,
-        navbar: true,
+        navbar: false,
       },
       email: {
         name: "Send Email",

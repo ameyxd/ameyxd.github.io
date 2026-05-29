@@ -8,9 +8,10 @@ interface Props {
   delay?: number;
 }
 
-// Circle draws in clockwise, then the check strokes through it. Triggers once
-// when the element scrolls into view (viewport once:true). Color comes from
-// currentColor, so wrap in a `text-accent-brand` (or any text-*) container.
+// Circle draws in clockwise, then the check strokes through it. Animates on
+// mount (mobile intersection-observer + negative margin proved unreliable, so
+// we always play once after hydration). Color comes from currentColor — wrap
+// in a `text-accent-brand` (or any text-*) container.
 export function AnimatedCheckmark({ className, delay = 0 }: Props) {
   return (
     <motion.svg
@@ -26,8 +27,7 @@ export function AnimatedCheckmark({ className, delay = 0 }: Props) {
         r="14"
         strokeWidth="2"
         initial={{ pathLength: 0, opacity: 0 }}
-        whileInView={{ pathLength: 1, opacity: 1 }}
-        viewport={{ once: true, margin: "-50px" }}
+        animate={{ pathLength: 1, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut", delay }}
       />
       <motion.path
@@ -36,8 +36,7 @@ export function AnimatedCheckmark({ className, delay = 0 }: Props) {
         strokeLinecap="round"
         strokeLinejoin="round"
         initial={{ pathLength: 0, opacity: 0 }}
-        whileInView={{ pathLength: 1, opacity: 1 }}
-        viewport={{ once: true, margin: "-50px" }}
+        animate={{ pathLength: 1, opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeOut", delay: delay + 0.45 }}
       />
     </motion.svg>

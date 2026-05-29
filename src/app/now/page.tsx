@@ -35,7 +35,7 @@ export default function NowPage() {
     .slice(0, 3);
 
   return (
-    <div className="container-wide py-8 md:py-16">
+    <div className="w-full max-w-[72rem] mx-auto px-6 sm:px-8 lg:px-12 py-8 md:py-16">
       <BlurFade delay={BLUR_FADE_DELAY}>
         <header className="mb-12 md:mb-16 max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-display font-semibold tracking-tight">
@@ -47,23 +47,43 @@ export default function NowPage() {
         </header>
       </BlurFade>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
         {/* DOING */}
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <section>
             <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6">
               Doing
             </h2>
-            <ul className="space-y-3">
-              {now.currentlyDoing.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-base">
-                  <span className="text-xl shrink-0" aria-hidden="true">
-                    {item.emoji}
-                  </span>
-                  <span>{item.text}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-1">
+              {now.currentlyDoing.map((item, idx) => {
+                const row = (
+                  <article className="flex items-start gap-4 py-3">
+                    <span
+                      className="text-2xl leading-none shrink-0 w-6 flex items-center justify-center"
+                      aria-hidden="true"
+                    >
+                      {item.emoji}
+                    </span>
+                    <h3 className="font-display text-lg md:text-xl font-semibold leading-tight">
+                      {item.text}
+                    </h3>
+                  </article>
+                );
+                return item.href ? (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block hover:text-accent-brand transition-colors"
+                  >
+                    {row}
+                  </a>
+                ) : (
+                  <div key={idx}>{row}</div>
+                );
+              })}
+            </div>
           </section>
         </BlurFade>
 
@@ -115,12 +135,12 @@ export default function NowPage() {
 
         {/* PLAYING */}
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <section className="lg:col-span-2">
+          <section>
             <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6">
               Playing
             </h2>
             {gaming.currentlyPlaying.length > 0 ? (
-              <div className="space-y-3 mb-6 max-w-xl">
+              <div className="space-y-3 mb-6">
                 {gaming.currentlyPlaying.map((game, idx) => (
                   <GameCard
                     key={`${game.title}-${idx}`}
@@ -137,7 +157,7 @@ export default function NowPage() {
                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
                   Recently completed
                 </p>
-                <div className="max-w-xl">
+                <div>
                   {recentGames.map((game, idx) => (
                     <GameCard
                       key={`${game.title}-${idx}`}

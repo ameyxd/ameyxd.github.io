@@ -108,8 +108,8 @@ export default async function HomePage() {
             {/* Current Work/Status */}
             <div className="p-8 rounded-xl bg-card/30 backdrop-blur-sm">
               <h2 className="text-2xl font-display font-semibold mb-6">Currently</h2>
-              <div className="space-y-4 text-muted-foreground">
-                {now.currentlyDoing.map((item, idx) => (
+              <div className="space-y-3 text-muted-foreground">
+                {now.currentlyDoing.slice(0, 3).map((item, idx) => (
                   <p key={idx} className="flex items-center gap-2">
                     <span className="text-xl">{item.emoji}</span>
                     {item.text}
