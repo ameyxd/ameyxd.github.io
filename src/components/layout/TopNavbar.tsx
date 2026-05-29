@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Icons } from "@/components/icons";
+import { ModeToggle } from "@/components/mode-toggle";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -81,19 +82,24 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <NavItems />
+            <ModeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2"
-          >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          {/* Mobile top-right: theme toggle + menu button */}
+          <div className="md:hidden flex items-center gap-1">
+            <ModeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+              className="p-2"
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
