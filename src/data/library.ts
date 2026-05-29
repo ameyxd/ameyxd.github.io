@@ -37,10 +37,9 @@ export const library: {
 } = {
   currentlyReading: [
     {
-      title: "The Body Keeps the Score",
-      author: "Bessel van der Kolk",
-      startedAt: "2026-04-10",
-      notes: "Trauma, embodiment, and the nervous system.",
+      title: "Kitchen Confidential",
+      author: "Anthony Bourdain",
+      startedAt: "2026-05-29",
     },
   ],
 
