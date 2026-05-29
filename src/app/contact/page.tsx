@@ -8,7 +8,7 @@ export default function ContactPage() {
   return (
     <div className="w-full max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <section className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6">Get in Touch</h1>
+        <h1 className="text-4xl md:text-6xl font-display font-semibold tracking-tight mb-6">Get in Touch</h1>
         <p className="text-xl text-muted-foreground mb-12">
           Feel free to reach out through any of these channels. I'm always open to discussing new opportunities, collaborations, or just having a chat about technology.
         </p>
@@ -16,7 +16,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Methods */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold mb-4">Contact Methods</h2>
+            <h2 className="text-2xl font-display font-semibold mb-4">Contact Methods</h2>
             <div className="space-y-4">
               <a
                 href={`mailto:${DATA.contact.email}`}
@@ -43,7 +43,7 @@ export default function ContactPage() {
 
           {/* Location & Availability */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold mb-4">Location</h2>
+            <h2 className="text-2xl font-display font-semibold mb-4">Location</h2>
             <a
               href={DATA.locationLink}
               target="_blank"
@@ -57,7 +57,27 @@ export default function ContactPage() {
             </a>
           </div>
         </div>
+
+        {/* Subscribe to newsletter */}
+        <div className="mt-16 md:mt-24">
+          <h2 className="text-2xl font-display font-semibold mb-2">Subscribe to my writing</h2>
+          <p className="text-muted-foreground mb-6 max-w-2xl">
+            Essays on machine learning, the energy sector, books I&apos;m thinking
+            with, and the occasional digression. New posts land in your inbox a
+            few times a month.
+          </p>
+          <div className="rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm p-2 max-w-xl">
+            <iframe
+              src="https://heyamey.substack.com/embed"
+              width="100%"
+              height="320"
+              style={{ border: "none", background: "transparent" }}
+              scrolling="no"
+              title="Subscribe to Amey&apos;s Substack"
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
-} 
+}

@@ -41,8 +41,8 @@ export default async function BlogPage({
         <header className="text-center mb-8 md:mb-16">
           {tag ? (
             <div className="space-y-4">
-              <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-                Amey's Blog
+              <h1 className="text-3xl md:text-4xl font-display font-semibold tracking-tight">
+                Amey&apos;s Blog
               </h1>
               <div className="flex items-center justify-center gap-2 text-xl">
                 <span className="text-muted-foreground">Posts tagged</span>
@@ -58,8 +58,8 @@ export default async function BlogPage({
               </div>
             </div>
           ) : (
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
-              Amey's Blog
+            <h1 className="text-4xl md:text-6xl font-display font-semibold tracking-tight">
+              Amey&apos;s Blog
             </h1>
           )}
         </header>
@@ -71,7 +71,7 @@ export default async function BlogPage({
             <article className="flex flex-col">
               <div className="group">
                 <Link href={`/blog/${post.slug}`}>
-                  <h2 className="text-4xl font-semibold tracking-tight mb-2 group-hover:text-primary/70 transition-colors">
+                  <h2 className="text-4xl font-display font-semibold tracking-tight mb-2 group-hover:text-primary/70 transition-colors">
                     {post.metadata.title}
                   </h2>
                 </Link>

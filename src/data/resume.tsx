@@ -35,7 +35,6 @@ export const DATA = {
   ],
   contact: {
     email: "ameyambade@gmail.com",
-    tel: "+123456789",
     social: {
       GitHub: {
         name: "GitHub",
@@ -63,6 +62,18 @@ export const DATA = {
         url: "https://dub.sh/amey-spotify",
         icon: Icons.spotify,
         navbar: true,
+      },
+      Substack: {
+        name: "Substack",
+        url: "https://heyamey.substack.com/",
+        icon: Icons.substack,
+        navbar: true,
+      },
+      X: {
+        name: "X",
+        url: "https://twitter.com/ameyxd",
+        icon: Icons.x,
+        navbar: false,
       },
       email: {
         name: "Send Email",
@@ -166,95 +177,83 @@ export const DATA = {
       end: "2017",
     },
   ],
-  projects: [ // TODO: Add projects
+  projects: [
     {
-      title: "ABC",
-      href: "https://abc.com",
-      dates: "Jan 2020 - Feb 2024",
+      title: "petromcp",
+      href: "https://github.com/ameyxd/petromcp",
+      dates: "May 2026 - Present",
       active: true,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-      ],
+        "MCP server that exposes petroleum data formats to Claude. v0.2 ships LAS; DLIS, SEG-Y, and pump cards next. Bridges traditional energy data into the LLM tool-use ecosystem.",
+      tags: ["MCP", "Python", "Claude", "Energy", "LLM"],
       links: [
-        {
-          type: "Website",
-          href: "https://abc.com",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video:
-        "https://temp.mp4",
-    },
-    {
-      title: "DEF",
-      href: "https://DEF.com",
-      dates: "May 2024 - Present",
-      active: true,
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://def.com",
-          icon: <Icons.globe className="size-3" />,
-        },
         {
           type: "Source",
-          href: "https://github.com/ameyxd",
+          href: "https://github.com/ameyxd/petromcp",
           icon: <Icons.github className="size-3" />,
         },
       ],
       image: "",
-      video: "https://temp.mp4",
-    }
-  ],
-  hackathons: [
-    { // TODO: Add more hackathons
-      title: "Competition",
-      dates: "March 2024",
-      location: "Chicago, IL",
-      description: "Competition",
-      image:
-        "/temp.png",
-      win: "Winner",
+      video: "",
+    },
+    {
+      title: "specwarden",
+      href: "https://github.com/ameyxd/specwarden",
+      dates: "May 2026 - Present",
+      active: true,
+      description:
+        "Forces a written spec before any code change and logs every edit with a backlink. Hook-based enforcement; complementary to GitHub's spec-kit.",
+      tags: ["Python", "Developer Tools", "Hooks", "Spec-Driven"],
       links: [
         {
-          title: "Substack Article",
-          icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://substack.com/temp",
-        },
-        {
-          title: "Poster Link",
-          icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://lorempixel.com/640/480",
-        },
-        {
-          title: "YouTube",
-          icon: <Icons.youtube className="h-4 w-4" />,
-          href: "https://www.youtube.com/",
-        },
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/ameyxd",
+          type: "Source",
+          href: "https://github.com/ameyxd/specwarden",
+          icon: <Icons.github className="size-3" />,
         },
       ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "obsidian-tiktoker",
+      href: "https://github.com/ameyxd/obsidian-tiktoker",
+      dates: "Nov 2024 - Present",
+      active: true,
+      description:
+        "A TikTok parser and saver for Obsidian. Captures video metadata, captions, and links into your vault as structured notes.",
+      tags: ["TypeScript", "Obsidian", "Plugin"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/ameyxd/obsidian-tiktoker",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "Focus Time",
+      href: "/focus",
+      dates: "Nov 2024 - Present",
+      active: true,
+      description:
+        "A minimalist focus timer for deep work sessions. Separate Next.js app deployed as a subdirectory of this site.",
+      tags: ["TypeScript", "Next.js", "Productivity"],
+      links: [
+        {
+          type: "Website",
+          href: "/focus",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/ameyxd/focus-time",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
     },
   ],
   patents: [

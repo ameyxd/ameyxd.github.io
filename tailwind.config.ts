@@ -21,6 +21,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        display: ["var(--font-display)", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -56,7 +57,17 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "accent-brand": "hsl(var(--accent-brand))",
       },
+      typography: ({ theme }: { theme: (path: string) => string[] }) => ({
+        DEFAULT: {
+          css: {
+            "h1, h2": {
+              fontFamily: theme("fontFamily.display").join(", "),
+            },
+          },
+        },
+      }),
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
