@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import { DATA } from "@/data/resume";
 import { library } from "@/data/library";
 import { BookCard } from "@/components/library/BookCard";
+import { now } from "@/data/now";
 
 export default async function HomePage() {
   const posts = await getBlogPosts();
@@ -108,19 +109,19 @@ export default async function HomePage() {
             <div className="p-8 rounded-xl bg-card/30 backdrop-blur-sm">
               <h2 className="text-2xl font-display font-semibold mb-6">Currently</h2>
               <div className="space-y-4 text-muted-foreground">
-                <p className="flex items-center gap-2">
-                  <span className="text-xl">🔭</span>
-                  Working on ML projects
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="text-xl">📚</span>
-                  Learning about LLMs
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="text-xl">✍️</span>
-                  Writing about tech
-                </p>
+                {now.currentlyDoing.map((item, idx) => (
+                  <p key={idx} className="flex items-center gap-2">
+                    <span className="text-xl">{item.emoji}</span>
+                    {item.text}
+                  </p>
+                ))}
               </div>
+              <Link
+                href="/now"
+                className="block mt-6 text-sm text-muted-foreground hover:text-accent-brand transition-colors"
+              >
+                See what I&apos;m up to →
+              </Link>
             </div>
 
             {/* Quick Links */}

@@ -27,6 +27,12 @@ const NavItems = () => (
       Library
     </Link>
     <Link
+      href="/now"
+      className="text-muted-foreground hover:text-foreground transition-colors"
+    >
+      Now
+    </Link>
+    <Link
       href="/about"
       className="text-muted-foreground hover:text-foreground transition-colors"
     >
