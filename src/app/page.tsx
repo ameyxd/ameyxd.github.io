@@ -5,10 +5,15 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { siteConfig } from "@/config/site";
 import { DATA } from "@/data/resume";
+import { library } from "@/data/library";
+import { BookCard } from "@/components/library/BookCard";
 
 export default async function HomePage() {
   const posts = await getBlogPosts();
   const { hobbies } = DATA;
+  const latestReads = [...library.read]
+    .sort((a, b) => (b.finishedAt ?? "").localeCompare(a.finishedAt ?? ""))
+    .slice(0, 3);
 
   return (
     <div className="min-h-screen">
@@ -135,6 +140,26 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
+
+        {/* Latest Reads */}
+        {latestReads.length > 0 && (
+          <section className="mt-24">
+            <div className="flex items-end justify-between mb-8">
+              <h2 className="text-3xl font-display font-semibold">Latest reads</h2>
+              <Link
+                href="/library"
+                className="text-sm text-muted-foreground hover:text-accent-brand transition-colors"
+              >
+                See full library →
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {latestReads.map((book, idx) => (
+                <BookCard key={`${book.title}-${idx}`} book={book} variant="read" />
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Hobbies Section */}
         <section className="mt-24">
