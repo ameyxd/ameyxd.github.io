@@ -35,13 +35,16 @@ function CoverThumb({ book }: { book: Book }) {
   );
 }
 
-function Stars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
+function Stars({ rating }: { rating: NonNullable<Book["rating"]> }) {
+  const full = Math.floor(rating);
+  const hasHalf = rating % 1 !== 0;
   return (
     <span
       className="text-accent-brand text-sm tracking-tight"
       aria-label={`${rating} out of 5 stars`}
     >
-      {"★".repeat(rating)}
+      {"★".repeat(full)}
+      {hasHalf && "½"}
     </span>
   );
 }

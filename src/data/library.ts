@@ -26,7 +26,7 @@ export type Book = {
   cover?: string;
   startedAt?: string;
   finishedAt?: string;
-  rating?: 1 | 2 | 3 | 4 | 5;
+  rating?: 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 4.5 | 5;
   notes?: string;
   link?: string;
 };
@@ -45,6 +45,24 @@ export const library: {
   ],
 
   read: [
+    {
+      title: "Giovanni's Room",
+      author: "James Baldwin",
+      finishedAt: "2026-04-01",
+      rating: 4.5,
+    },
+    {
+      title: "The Three-Body Problem",
+      author: "Liu Cixin",
+      finishedAt: "2026-03-01",
+      rating: 2,
+    },
+    {
+      title: "Flesh",
+      author: "David Szalay",
+      finishedAt: "2026-02-01",
+      rating: 2,
+    },
     {
       title: "The Courage to Be Disliked",
       author: "Ichiro Kishimi & Fumitake Koga",
