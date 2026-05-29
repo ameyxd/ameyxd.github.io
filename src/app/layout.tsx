@@ -2,7 +2,6 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/TopNavbar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Icons } from "@/components/icons";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site";
@@ -69,9 +68,6 @@ export default function RootLayout({
                     </a>
                   </DockIcon>
                 ))}
-              <DockIcon>
-                <ModeToggle className="size-12 flex items-center justify-center" />
-              </DockIcon>
             </Dock>
           </div>
         </ThemeProvider>

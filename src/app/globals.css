@@ -237,3 +237,17 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
     @apply relative before:absolute before:left-[-1.67rem] before:top-[1.125rem] before:h-3 before:w-3 before:rounded-full before:border-2 before:border-muted before:bg-background;
   }
 }
+
+/* Theme toggle: View Transitions API circular wipe. The default cross-fade is
+   disabled so the JS animation in mode-toggle.tsx fully owns the transition. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
