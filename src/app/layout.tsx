@@ -9,6 +9,7 @@ import { Dock, DockIcon } from "@/components/magicui/dock";
 import { fontVariables } from "@/config/fonts";
 import { currently } from "@/data/currently";
 import { PageAge } from "@/components/PageAge";
+import PixelCat from "@/components/PixelCat";
 
 export default function RootLayout({
   children,
@@ -86,6 +87,18 @@ export default function RootLayout({
                   </DockIcon>
                 ))}
             </Dock>
+          </div>
+
+          {/* Crow — pixel-art mascot, bottom-left corner. Idles (sits and
+              blinks) by default. Sprites in /public/sprites/.
+              Wrapper width is 5px less than the cat's natural width so the
+              sprite frame's right-edge residue gets clipped off. */}
+          <div
+            aria-hidden="true"
+            className="fixed bottom-2 left-4 z-20 hidden md:block overflow-hidden"
+            style={{ width: 110, height: 96 }}
+          >
+            <PixelCat size={96} mode="idle" />
           </div>
         </ThemeProvider>
       </body>

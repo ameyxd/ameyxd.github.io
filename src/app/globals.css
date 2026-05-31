@@ -284,6 +284,7 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   .wiki-link:hover {
     @apply decoration-accent-brand/80 decoration-solid;
   }
+
 }
 
 /* Theme toggle: View Transitions API circular wipe. The default cross-fade is
