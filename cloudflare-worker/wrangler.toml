@@ -1,0 +1,8 @@
+name = "heyamey-spotify"
+main = "src/index.js"
+compatibility_date = "2025-10-01"
+
+# Secrets are NOT stored here — set them via:
+#   wrangler secret put SPOTIFY_CID
+#   wrangler secret put SPOTIFY_SECRET
+#   wrangler secret put SPOTIFY_REFRESH
