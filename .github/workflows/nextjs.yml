@@ -19,6 +19,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # NEXT_PUBLIC_* vars are inlined into the client bundle at `next build`
+    # time. Both the `Build with Next.js` and `Static HTML export` steps run
+    # next build (the export script is also `next build` under output: export),
+    # so we set this at the job level to cover both.
+    env:
+      NEXT_PUBLIC_SPOTIFY_PROXY_URL: ${{ secrets.NEXT_PUBLIC_SPOTIFY_PROXY_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
