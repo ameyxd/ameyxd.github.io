@@ -14,7 +14,6 @@ export type Fragment = {
 
 export const fragments: Fragment[] = [
   { text: "Crow the cat" },
-  { text: "Bossa nova on the speakers" },
   { text: "Curling on the ice" },
   { text: "Open source design" },
   { text: "Obsidian forward" },
