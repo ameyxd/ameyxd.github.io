@@ -10,6 +10,8 @@ import { now } from "@/data/now";
 import { currently } from "@/data/currently";
 import { fragments } from "@/data/fragments";
 import { Highlight } from "@/components/Highlight";
+import { SpotifyNowPlaying } from "@/components/SpotifyNowPlaying";
+import { SERadioSection } from "@/components/SERadioSection";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -100,23 +102,33 @@ export default async function HomePage() {
               </BlurFade>
             </div>
 
-            <BlurFade delay={BLUR_FADE_DELAY * 2}>
-              <div className="relative w-44 h-44 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-muted shrink-0">
-                <Image
-                  src="/me.png"
-                  alt={siteConfig.name}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </BlurFade>
+            <div className="flex flex-col items-center gap-4 shrink-0">
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                <div className="relative w-44 h-44 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-muted shrink-0">
+                  <Image
+                    src="/me.png"
+                    alt={siteConfig.name}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </BlurFade>
+              <BlurFade delay={BLUR_FADE_DELAY * 3}>
+                <SpotifyNowPlaying />
+              </BlurFade>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
       <div className="container-wide pb-16 space-y-24">
+        {/* SE Radio */}
+        <BlurFade delay={BLUR_FADE_DELAY * 5.5}>
+          <SERadioSection />
+        </BlurFade>
+
         {/* Writing */}
         {featuredPost && (
           <BlurFade delay={BLUR_FADE_DELAY * 6}>
