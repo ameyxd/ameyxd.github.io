@@ -10,6 +10,7 @@ import { fontVariables } from "@/config/fonts";
 import { currently } from "@/data/currently";
 import { PageAge } from "@/components/PageAge";
 import { CatMascot } from "@/components/CatMascot";
+import { SpotifyNowPlaying } from "@/components/SpotifyNowPlaying";
 
 export default function RootLayout({
   children,
@@ -47,11 +48,11 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Row 2 — obsessing-over · page age */}
+              {/* Row 2 — live spotify (or obsessing-over fallback) · page age */}
               <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-1 md:gap-2 italic text-xs text-muted-foreground/80">
-                <span>
-                  currently obsessing over: {currently.obsessingOver}
-                </span>
+                <SpotifyNowPlaying
+                  fallback={`currently obsessing over: ${currently.obsessingOver}`}
+                />
                 {process.env.NEXT_PUBLIC_BUILD_TIME && (
                   <PageAge stampedAt={process.env.NEXT_PUBLIC_BUILD_TIME} />
                 )}

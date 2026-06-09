@@ -1,30 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
-// SpotifyNowPlaying — a small "Now playing" card rendered below the hero
-// profile photo. Polls a serverless proxy (Cloudflare Worker / Vercel
-// function / similar) that holds the long-lived refresh token + client
-// secret, exchanges it for a fresh access token, and returns this minimal
-// JSON shape:
+// SpotifyNowPlaying — renders Spotify activity as an inline italic line in
+// the footer's row 2 (where "currently obsessing over: …" lives).
 //
-//   { "isPlaying": true,
-//     "title":      "Chega de Saudade",
-//     "artist":     "João Gilberto",
-//     "albumArt":   "https://i.scdn.co/image/...",
-//     "url":        "https://open.spotify.com/track/..." }
+// Three states:
+//   • currently playing  → ● now playing: ARTIST · TITLE   (pulsing dot)
+//   • recently played    → ○ last played: ARTIST · TITLE   (static dot)
+//   • neither / no proxy → renders `fallback` verbatim (the obsessing-over
+//     line never disappears)
 //
-// The proxy URL is read from NEXT_PUBLIC_SPOTIFY_PROXY_URL at build time.
-// When unset, the request fails, or nothing is playing, the card renders
-// nothing — there is no static fallback. See PLAN.md (Phase 8) for the
-// Cloudflare Worker template and one-time Spotify auth steps.
+// Data shape from the Cloudflare Worker (cloudflare-worker/src/index.js):
+//   { isPlaying, wasPlaying?, title?, artist?, albumArt?, url?, playedAt? }
 
 type NowPlaying = {
   isPlaying: boolean;
+  wasPlaying?: boolean;
   title?: string;
   artist?: string;
   albumArt?: string;
   url?: string;
+  playedAt?: string;
 };
 
 const PROXY_URL = process.env.NEXT_PUBLIC_SPOTIFY_PROXY_URL;
@@ -32,7 +29,7 @@ const PROXY_URL = process.env.NEXT_PUBLIC_SPOTIFY_PROXY_URL;
 // starts hitting rate limits.
 const POLL_MS = 30_000;
 
-export function SpotifyNowPlaying() {
+export function SpotifyNowPlaying({ fallback }: { fallback: ReactNode }) {
   const [data, setData] = useState<NowPlaying | null>(null);
 
   useEffect(() => {
@@ -47,7 +44,7 @@ export function SpotifyNowPlaying() {
         if (!cancelled) setData(json);
       } catch {
         // network blips happen — keep showing the last good state instead
-        // of flashing back to nothing.
+        // of flashing back to the fallback.
       }
     };
 
@@ -59,57 +56,43 @@ export function SpotifyNowPlaying() {
     };
   }, []);
 
-  const live = data?.isPlaying && data.title;
-  if (!live) return null;
+  const hasTrack = data?.title;
+  if (!hasTrack) return <>{fallback}</>;
 
-  const inner = (
-    <>
-      {data!.albumArt ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={data!.albumArt}
-          alt=""
-          className="size-12 rounded-md shrink-0 bg-muted object-cover"
-        />
-      ) : (
-        <div className="size-12 rounded-md shrink-0 bg-emerald-500/15" />
-      )}
-      <div className="min-w-0 flex-1 text-left">
-        <p className="text-[10px] uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
-          <span
-            className="size-1.5 rounded-full bg-accent-brand animate-pulse [animation-duration:1.5s] shrink-0"
-            aria-hidden="true"
-          />
-          Now playing
-        </p>
-        <p className="text-sm font-medium truncate group-hover:text-accent-brand transition-colors">
-          {data!.title}
-        </p>
-        {data!.artist && (
-          <p className="text-xs text-muted-foreground truncate">
-            {data!.artist}
-          </p>
-        )}
-      </div>
-    </>
-  );
+  const label = data!.artist ? `${data!.artist} · ${data!.title}` : data!.title!;
+  const isLive = data!.isPlaying;
+  const prefix = isLive ? "now playing" : "last played";
 
-  const className =
-    "group flex items-center gap-3 p-3 rounded-xl border bg-card/50 hover:bg-card/80 transition-colors w-44 md:w-64 shrink-0";
-
-  return data!.url ? (
+  const trackText = data!.url ? (
     <a
       href={data!.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={className}
-      title="Listening on Spotify"
+      className="hover:text-accent-brand transition-colors"
     >
-      {inner}
+      {label}
     </a>
   ) : (
-    <div className={className} title="Listening on Spotify">
-      {inner}
-    </div>
+    <span>{label}</span>
+  );
+
+  // Live = pulsing accent dot. Recently-played = static muted dot. The
+  // visual delta signals "this is fresh" vs "this is cached" without a
+  // verbose timestamp.
+  const dotClass = isLive
+    ? "bg-accent-brand animate-pulse [animation-duration:1.5s]"
+    : "bg-muted-foreground/60";
+
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <span
+        className={`size-1.5 rounded-full shrink-0 ${dotClass}`}
+        aria-hidden="true"
+        title={isLive ? "Live from Spotify" : "Recently played on Spotify"}
+      />
+      <span>
+        {prefix}: {trackText}
+      </span>
+    </span>
   );
 }

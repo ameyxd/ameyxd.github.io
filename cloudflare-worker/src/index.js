@@ -2,21 +2,28 @@
 //
 // Holds the long-lived refresh_token + Spotify client credentials as Worker
 // secrets, exchanges them for a short-lived access_token on each request,
-// hits Spotify's currently-playing endpoint, and returns a minimal JSON
-// shape the static site can render directly. CORS-open so the browser-side
-// fetch in <SpotifyNowPlaying /> can hit it from heyamey.com.
+// and returns the currently-playing Spotify track. When nothing is playing
+// right now, falls back to the most recently-played track so the site never
+// looks "idle". CORS-open so the browser-side fetch can hit it from
+// heyamey.com.
 //
 // Secrets (set via: wrangler secret put NAME):
 //   SPOTIFY_CID       Spotify Client ID
 //   SPOTIFY_SECRET    Spotify Client Secret
 //   SPOTIFY_REFRESH   refresh_token printed by scripts/spotify-auth.mjs
+//                     (must have BOTH user-read-currently-playing AND
+//                      user-read-recently-played scopes — re-run the helper
+//                      if you minted the token before recently-played was
+//                      added.)
 //
-// Response shape (consumed by SpotifyNowPlaying.tsx):
-//   { isPlaying: boolean,
-//     title?:    string,
-//     artist?:   string,
-//     albumArt?: string (image URL),
-//     url?:      string (open.spotify.com link) }
+// Response shape (consumed by SpotifyNowPlaying.tsx + SpotifyEmbed.tsx):
+//   { isPlaying:  boolean,             // true = live right now
+//     wasPlaying: boolean | undefined, // true = recently-played fallback
+//     title?:     string,
+//     artist?:    string,
+//     albumArt?:  string (image URL),
+//     url?:       string (open.spotify.com link),
+//     playedAt?:  string (ISO timestamp, only for wasPlaying) }
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -58,9 +65,35 @@ export default {
       { headers: { Authorization: `Bearer ${access_token}` } },
     );
 
-    // 204 means "authenticated fine, but nothing is currently playing" — a
-    // valid state, not an error. Mirror that as { isPlaying: false }.
+    // 204 means "authenticated fine, but nothing is currently playing" —
+    // fall back to the most recently-played track so the card never goes
+    // empty. Requires user-read-recently-played on the refresh token.
     if (npRes.status === 204) {
+      const recentRes = await fetch(
+        "https://api.spotify.com/v1/me/player/recently-played?limit=1",
+        { headers: { Authorization: `Bearer ${access_token}` } },
+      );
+      if (recentRes.ok) {
+        const recent = await recentRes.json();
+        const last = recent.items?.[0];
+        const item = last?.track;
+        if (item) {
+          return new Response(
+            JSON.stringify({
+              isPlaying: false,
+              wasPlaying: true,
+              title: item.name,
+              artist: item.artists?.map((a) => a.name).join(", "),
+              albumArt:
+                item.album?.images?.[1]?.url ?? item.album?.images?.[0]?.url,
+              url: item.external_urls?.spotify,
+              playedAt: last.played_at,
+            }),
+            { headers: CORS },
+          );
+        }
+      }
+      // Empty recent-played history (rare) — degrade gracefully.
       return new Response(JSON.stringify({ isPlaying: false }), {
         headers: CORS,
       });

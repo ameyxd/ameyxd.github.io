@@ -20,7 +20,12 @@ import { Buffer } from "node:buffer";
 const CID = process.env.SPOTIFY_CID;
 const SECRET = process.env.SPOTIFY_SECRET;
 const REDIRECT = "http://127.0.0.1:8787/callback";
-const SCOPE = "user-read-currently-playing";
+// Two scopes — currently-playing for the live track, recently-played for the
+// fallback when nothing is actively playing. If you minted a refresh_token
+// before recently-played was added, re-run this script to grant the new
+// scope (Spotify will treat it as a fresh authorization and issue a new
+// refresh_token).
+const SCOPE = "user-read-currently-playing user-read-recently-played";
 const PORT = 8787;
 
 if (!CID || !SECRET) {

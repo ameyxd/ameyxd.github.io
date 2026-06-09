@@ -10,8 +10,8 @@ import { now } from "@/data/now";
 import { currently } from "@/data/currently";
 import { fragments } from "@/data/fragments";
 import { Highlight } from "@/components/Highlight";
-import { SpotifyNowPlaying } from "@/components/SpotifyNowPlaying";
 import { SERadioSection } from "@/components/SERadioSection";
+import { SpotifyEmbed } from "@/components/SpotifyEmbed";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -102,22 +102,17 @@ export default async function HomePage() {
               </BlurFade>
             </div>
 
-            <div className="flex flex-col items-center gap-4 shrink-0">
-              <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                <div className="relative w-44 h-44 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-muted shrink-0">
-                  <Image
-                    src="/me.png"
-                    alt={siteConfig.name}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </BlurFade>
-              <BlurFade delay={BLUR_FADE_DELAY * 3}>
-                <SpotifyNowPlaying />
-              </BlurFade>
-            </div>
+            <BlurFade delay={BLUR_FADE_DELAY * 2}>
+              <div className="relative w-44 h-44 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-muted shrink-0">
+                <Image
+                  src="/me.png"
+                  alt={siteConfig.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </BlurFade>
           </div>
         </div>
       </section>
@@ -353,9 +348,10 @@ export default async function HomePage() {
               <Highlight>Fragments</Highlight>
             </h2>
             <p className="text-sm text-muted-foreground mb-8 italic max-w-2xl">
-              Things I&apos;m into right now. Updated when the answer changes.
+              Things I&apos;m into right now.
             </p>
             <ul className="space-y-2 font-display text-lg md:text-xl">
+              <SpotifyEmbed />
               {fragments.map((frag, idx) => (
                 <li key={idx} className="leading-relaxed">
                   {frag.href ? (
