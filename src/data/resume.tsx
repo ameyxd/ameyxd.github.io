@@ -9,9 +9,9 @@ export const DATA = {
   location: "Houston, TX",
   locationLink: "https://www.google.com/maps/place/houston",
   description:
-    "Senior Data Scientist and Machine Learning Engineer. I love building software, lifting, yapping and giving to the community.",
+    "I build AI systems for clients across industries, and write about when they break.",
   summary:
-    "I've been coding since I was 12 years old. I have masters and bachelors degrees in computer science, have lived in 3 different countries, and worked at multiple Fortune 500 companies. I work on ML/AI research in the energy sector, AI ethics, open source development and volunteering.",
+    "Amey builds AI for Dataiku clients across pharma, retail, finance, insurance, and energy. He hosts SE Radio, lives in Houston with a cat named Crow, lifts heavy, and makes music when it's quiet.",
   avatarUrl: "/me.png",
   skills: [
     "Python",

@@ -236,6 +236,55 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   .timeline-list > div {
     @apply relative before:absolute before:left-[-1.67rem] before:top-[1.125rem] before:h-3 before:w-3 before:rounded-full before:border-2 before:border-muted before:bg-background;
   }
+
+  /* Fraunces WONK axis — apply to a single word or short phrase for personality.
+     Pairs well with italic on Fraunces; the WONK axis warps select glyphs (g,
+     e, k) into a looser, hand-cut feel. Don't apply to full sentences.
+     Reads as plain italic at heading sizes — prefer .highlight for word emphasis. */
+  .wonky {
+    font-family: var(--font-display), Georgia, serif;
+    font-variation-settings: "WONK" 1, "opsz" 144;
+  }
+
+  /* Hand-drawn yellow highlighter. The bottom 55% of the text bounds gets a
+     warm yellow band; component animates `background-size` from 0% to 100% to
+     draw it in. Use through the <Highlight> component, not directly. */
+  .highlight {
+    background-image: linear-gradient(
+      to top,
+      hsl(45 100% 65% / 0.75) 0%,
+      hsl(45 100% 65% / 0.75) 55%,
+      transparent 55%,
+      transparent 100%
+    );
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 0% 100%;
+    padding: 0 0.08em;
+    margin: 0 -0.04em;
+    /* Slight rotation makes the marker feel hand-drawn rather than computed. */
+    display: inline-block;
+    transform: rotate(-0.5deg);
+  }
+  .dark .highlight {
+    background-image: linear-gradient(
+      to top,
+      hsl(45 100% 60% / 0.55) 0%,
+      hsl(45 100% 60% / 0.55) 55%,
+      transparent 55%,
+      transparent 100%
+    );
+  }
+
+  /* Obsidian-style internal wiki link — faint blue dotted underline that
+     thickens on hover. Use for cross-references between site sections. */
+  .wiki-link {
+    @apply text-accent-brand decoration-accent-brand/40 decoration-dotted underline-offset-4 underline transition-colors;
+  }
+  .wiki-link:hover {
+    @apply decoration-accent-brand/80 decoration-solid;
+  }
+
 }
 
 /* Theme toggle: View Transitions API circular wipe. The default cross-fade is

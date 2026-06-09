@@ -1,0 +1,15 @@
+{
+  "name": "heyamey-spotify-worker",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Cloudflare Worker proxy for the heyamey.com Spotify now-playing card.",
+  "scripts": {
+    "login": "wrangler login",
+    "secret": "wrangler secret put",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

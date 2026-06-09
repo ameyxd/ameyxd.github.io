@@ -7,6 +7,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { fontVariables } from "@/config/fonts";
+import { currently } from "@/data/currently";
+import { PageAge } from "@/components/PageAge";
+import { CatMascot } from "@/components/CatMascot";
+import { SpotifyNowPlaying } from "@/components/SpotifyNowPlaying";
 
 export default function RootLayout({
   children,
@@ -29,14 +33,29 @@ export default function RootLayout({
           
           {/* Site Footer */}
           <div className="w-full border-t py-8 mb-24 bg-background/50">
-            <div className="container-wide flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-              <span className="italic">{siteConfig.personalquote}</span>
-              <div className="flex flex-col md:flex-row gap-2">
-                <span>© {new Date().getFullYear()} {siteConfig.name}</span>
-                <div className="flex items-center gap-2">
-                  <div className="size-2 rounded-full bg-accent-brand animate-pulse [animation-duration:1s]" />
-                  <span>{DATA.location}</span>
+            <div className="container-wide flex flex-col gap-3 text-sm text-muted-foreground">
+              {/* Row 1 — quote · copyright · location */}
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+                <span className="italic">{siteConfig.personalquote}</span>
+                <div className="flex items-center gap-3">
+                  <span>
+                    © {new Date().getFullYear()} {siteConfig.name}
+                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <div className="size-2 rounded-full bg-accent-brand animate-pulse [animation-duration:1s]" />
+                    <span>{DATA.location}</span>
+                  </div>
                 </div>
+              </div>
+
+              {/* Row 2 — live spotify (or obsessing-over fallback) · page age */}
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-1 md:gap-2 italic text-xs text-muted-foreground/80">
+                <SpotifyNowPlaying
+                  fallback={`currently obsessing over: ${currently.obsessingOver}`}
+                />
+                {process.env.NEXT_PUBLIC_BUILD_TIME && (
+                  <PageAge stampedAt={process.env.NEXT_PUBLIC_BUILD_TIME} />
+                )}
               </div>
             </div>
           </div>
@@ -70,6 +89,11 @@ export default function RootLayout({
                 ))}
             </Dock>
           </div>
+
+          {/* Crow — pixel-art mascot, bottom-left corner. Idles by default,
+              walks across the bottom on click. State + animation live in the
+              client component; sprites in /public/sprites/. */}
+          <CatMascot />
         </ThemeProvider>
       </body>
     </html>
