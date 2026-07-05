@@ -1,4 +1,6 @@
 import "./globals.css";
+import type { Metadata } from "next";
+import Script from "next/script";
 import { Navbar } from "@/components/layout/TopNavbar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
@@ -11,6 +13,41 @@ import { currently } from "@/data/currently";
 import { PageAge } from "@/components/PageAge";
 import { CatMascot } from "@/components/CatMascot";
 import { SpotifyNowPlaying } from "@/components/SpotifyNowPlaying";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s · ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: siteConfig.name }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/og.jpg"],
+    creator: "@ameyxd",
+  },
+  alternates: {
+    canonical: siteConfig.url,
+    types: {
+      "application/rss+xml": `${siteConfig.url}/feed.xml`,
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function RootLayout({
   children,
@@ -95,6 +132,16 @@ export default function RootLayout({
               client component; sprites in /public/sprites/. */}
           <CatMascot />
         </ThemeProvider>
+        {/* Cloudflare Web Analytics — only rendered when the beacon token is
+            provided at build time (NEXT_PUBLIC_CF_BEACON_TOKEN secret in CI). */}
+        {process.env.NEXT_PUBLIC_CF_BEACON_TOKEN && (
+          <Script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={`{"token": "${process.env.NEXT_PUBLIC_CF_BEACON_TOKEN}"}`}
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );
