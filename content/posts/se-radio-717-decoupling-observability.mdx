@@ -1,0 +1,93 @@
+---
+title: "SE Radio 717 — Eric Tschetter on Decoupling Observability"
+description: "I hosted Apache Druid co-founder Eric Tschetter on Software Engineering Radio to talk about breaking the observability stack into four layers — and what it takes to escape a coupled vendor stack."
+publishedAt: "July 5, 2026"
+tags:
+  - observability
+  - podcast
+  - se-radio
+  - apache-druid
+  - opentelemetry
+status: published
+featured: false
+series: SE Radio
+toc: true
+lang: en
+canonical: https://heyamey.com/blog/se-radio-717-decoupling-observability
+---
+
+I recently sat down with **Eric Tschetter** — co-founder of Apache Druid and
+Chief Architect at Imply — for [episode 717 of Software Engineering
+Radio](https://se-radio.net/2026/04/se-radio-717-eric-tschetter-on-decoupling-observability/)
+to dissect a shift I keep seeing in production systems: the move toward
+**decoupling observability**.
+
+Also on [Apple Podcasts](https://podcasts.apple.com/us/podcast/eric-tschetter-on-decoupling-observability/id120906714?i=1000763163739).
+
+## Why decouple at all?
+
+We started from first principles: the three pillars — **logs, metrics, and
+traces** — and why the rise of microservices has turned traditional, tightly
+coupled observability stacks into a source of real pain. When ingest, storage,
+query, and dashboards all live inside one vendor's box, you inherit vendor
+lock-in, scaling costs that grow prohibitive, and operational complexity that
+compounds with every new service you deploy.
+
+## The four-layer architecture
+
+Drawing a parallel to how the business intelligence world separated its stack,
+Eric lays out an architecture with four distinct layers:
+
+1. **Ingest / Route** — get telemetry in and send it where it needs to go
+2. **Data Storage** — own your data, independent of any one tool
+3. **Query / Compute** — the engine that answers questions about it
+4. **Visualization** — whatever front-end suits the team
+
+The framework's promise is flexibility: each layer can evolve — or be swapped —
+without dragging the rest of the stack along.
+
+## Data portability and OpenTelemetry
+
+A big portion of the conversation is about what makes decoupling practical:
+**data portability**. Standards like OpenTelemetry standardize schemas so
+telemetry can flow freely between multiple back-ends instead of being held
+hostage by one ingest format.
+
+## Druid, and querying hot + cold data
+
+Since Eric co-authored Apache Druid, we went deep on the Query/Compute layer:
+how Druid addresses the demands of real-time analytics on observability data,
+the indexing strategies involved, and how it unifies query results across hot
+and cold storage tiers.
+
+## Operational survival
+
+The part I found most practical for anyone running this in anger:
+
+- **Smart sampling** that preserves high-value signals instead of blindly dropping data
+- **Buffering and backpressure** practices for when the pipeline gets swamped
+- **Governance models** that let multiple teams safely share one data lake
+
+## The honest trade-offs
+
+We closed with a candid look at the complexity you take on when you decouple —
+this is not a free lunch — and a roadmap for organizations weighing a migration
+away from a coupled vendor stack.
+
+## About Eric
+
+Eric is Chief Architect at Imply and one of the original authors of the
+open-source Apache Druid project, with experience across engineering and
+leadership roles at Splunk and Yahoo. He previously served as VP of Engineering
+at Metamarkets — where Druid originated — and was a founding team member of the
+diabetes data nonprofit Tidepool.
+
+## Related SE Radio episodes
+
+If this topic is your thing, these pair well:
+
+- **SE Radio 556** — Alex Boten on OpenTelemetry: telemetry interoperability, collectors, and the OpenTelemetry project
+- **SE Radio 591** — Yechezkel Rabinovich on Kubernetes Observability: three pillars, eBPF, and observability costs
+- **SE Radio 455** — Jamie Riedesel on Software Telemetry: foundational concepts of tracing, logging, and monitoring infrastructure
+- **SE Radio 534** — Andy Dang on AI/ML Observability: data drift and production failures in ML applications
+- **SE Radio 610** — Phillip Carter on Observability for LLMs: observability-driven development and debugging LLMs
