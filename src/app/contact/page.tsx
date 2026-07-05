@@ -10,7 +10,7 @@ export default function ContactPage() {
       <section className="max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-display font-semibold tracking-tight mb-6">Get in Touch</h1>
         <p className="text-xl text-muted-foreground mb-12">
-          Feel free to reach out through any of these channels. I'm always open to discussing new opportunities, collaborations, or just having a chat about technology.
+          Feel free to reach out through any of these channels. I&apos;m always open to discussing new opportunities, collaborations, or just having a chat about technology.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

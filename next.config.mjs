@@ -1,18 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: "",
-  typescript: {
-    // Skip type checking during build
-    ignoreBuildErrors: true
-  },
   reactStrictMode: true,
   output: "export",
   images: {
     unoptimized: true,
-  },
-  eslint: {
-    // Don't run ESLint during builds
-    ignoreDuringBuilds: true,
   },
   // Stamp the build time into the bundle so the footer can render "this page
   // is N minutes old" against the static export's creation moment. Evaluated

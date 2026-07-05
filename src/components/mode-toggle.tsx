@@ -25,7 +25,6 @@ export function ModeToggle({ className }: Props) {
 
     const supportsTransitions =
       typeof document !== "undefined" &&
-      // @ts-expect-error - startViewTransition is not yet in lib.dom typings
       typeof document.startViewTransition === "function";
     const prefersReducedMotion =
       typeof window !== "undefined" &&
@@ -44,7 +43,6 @@ export function ModeToggle({ className }: Props) {
       Math.max(y, window.innerHeight - y),
     );
 
-    // @ts-expect-error - startViewTransition is not yet in lib.dom typings
     const transition = document.startViewTransition(() => {
       flushSync(() => setTheme(next));
     });

@@ -32,13 +32,15 @@ function getMDXFiles(dir: string) {
 export async function getPost(slug: string) {
   const filePath = path.join("content/posts", `${slug}.mdx`);
   let source = fs.readFileSync(filePath, "utf-8");
-  const { content: rawContent, data: metadata } = matter(source);
-  
+  const { content: rawContent, data } = matter(source);
+
   // Calculate reading time
   const wordsPerMinute = 200;
   const wordCount = rawContent.split(/\s+/g).length;
   const readingTime = Math.ceil(wordCount / wordsPerMinute);
-  
+
+  const metadata = data as BlogPostMetadata;
+
   return {
     source: rawContent,
     metadata: {
@@ -46,7 +48,7 @@ export async function getPost(slug: string) {
       readingTime,
     },
     slug,
-  } as const;
+  };
 }
 
 async function getAllPosts(dir: string) {
