@@ -179,6 +179,29 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Focus Time",
+      href: "https://heyamey.com/focus",
+      dates: "Nov 2024 - Present",
+      active: true,
+      description:
+        "Minimal pomodoro timer for deep work — 25-minute focus blocks, short breaks, no accounts, no tracking, nothing to configure. Lives at heyamey.com/focus.",
+      tags: ["Next.js", "TypeScript", "Tailwind"],
+      links: [
+        {
+          type: "Website",
+          href: "https://heyamey.com/focus",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/ameyxd/focus-time",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/focus-preview.png",
+      video: "",
+    },
+    {
       title: "petromcp",
       href: "https://github.com/ameyxd/petromcp",
       dates: "May 2026 - Present",
@@ -226,29 +249,6 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/ameyxd/obsidian-tiktoker",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Focus Time",
-      href: "/focus",
-      dates: "Nov 2024 - Present",
-      active: true,
-      description:
-        "A minimalist focus timer for deep work sessions. Separate Next.js app deployed as a subdirectory of this site.",
-      tags: ["TypeScript", "Next.js", "Productivity"],
-      links: [
-        {
-          type: "Website",
-          href: "/focus",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/ameyxd/focus-time",
           icon: <Icons.github className="size-3" />,
         },
       ],
