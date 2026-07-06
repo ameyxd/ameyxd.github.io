@@ -11,18 +11,18 @@ const embedComponents = {
 }
 
 const markdownComponents = {
-  table: ({ children }: { children: React.ReactNode }) => (
+  table: ({ children }: { children?: React.ReactNode }) => (
     <div className="my-6 w-full overflow-y-auto">
       <table className="w-full border-collapse border">{children}</table>
     </div>
   ),
-  th: ({ children }: { children: React.ReactNode }) => (
+  th: ({ children }: { children?: React.ReactNode }) => (
     <th className="border px-4 py-2 text-left font-bold">{children}</th>
   ),
-  td: ({ children }: { children: React.ReactNode }) => (
+  td: ({ children }: { children?: React.ReactNode }) => (
     <td className="border px-4 py-2">{children}</td>
   ),
-  li: ({ children, checked }: { children: React.ReactNode, checked?: boolean }) => {
+  li: ({ children, checked }: { children?: React.ReactNode, checked?: boolean }) => {
     if (checked !== undefined) {
       return (
         <li className="flex items-start gap-2 my-1 list-none">
@@ -38,12 +38,12 @@ const markdownComponents = {
     }
     return <li className="my-1">{children}</li>;
   },
-  ul: ({ children }: { children: React.ReactNode }) => (
+  ul: ({ children }: { children?: React.ReactNode }) => (
     <ul className="list-disc list-inside my-4 space-y-1">
       {children}
     </ul>
   ),
-  img: dynamic(() => Promise.resolve(({ src, alt }: { src: string; alt: string }) => (
+  img: dynamic(() => Promise.resolve(({ src, alt }: { src?: string; alt?: string }) => (
     <div className="not-prose my-8">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 

@@ -21,7 +21,7 @@ export function remarkTables() {
           });
 
           // If successfully parsed as table, replace the paragraph node
-          if (parsed.children[0]?.type === 'table') {
+          if (parsed.children[0]?.type === 'table' && parent && index != null) {
             parent.children[index] = parsed.children[0];
           }
         } catch (e) {
