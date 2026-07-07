@@ -300,3 +300,24 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 ::view-transition-new(root) {
   z-index: 2;
 }
+/* Reading mode — toggled on <html> by ReadingModeToggle on blog posts.
+   Chrome (navbar, footer, dock) dims until hovered, the post measure widens,
+   and body copy switches to the display serif at a book-like size. */
+[data-site-chrome] {
+  transition: opacity 0.3s ease;
+}
+html.reading-mode [data-site-chrome] {
+  opacity: 0.12;
+}
+html.reading-mode [data-site-chrome]:hover,
+html.reading-mode [data-site-chrome]:focus-within {
+  opacity: 1;
+}
+html.reading-mode [data-post-container] {
+  max-width: 54rem;
+}
+html.reading-mode [data-post-container] .prose {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.1875rem;
+  line-height: 1.9;
+}

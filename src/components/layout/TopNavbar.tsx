@@ -59,7 +59,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40">
+    <nav data-site-chrome className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40">
       <div className="container-wide">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">

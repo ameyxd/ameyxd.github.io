@@ -1,4 +1,5 @@
 import { Embed } from '@/components/blog/Embed'
+import { HoverPreviewLink } from '@/components/blog/HoverPreviewLink'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { remarkUrlToEmbed } from '@/lib/remarkUrlToEmbed'
 import { remarkTables } from '@/lib/remarkTables'
@@ -11,6 +12,9 @@ const embedComponents = {
 }
 
 const markdownComponents = {
+  a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
+    <HoverPreviewLink {...props} />
+  ),
   table: ({ children }: { children?: React.ReactNode }) => (
     <div className="my-6 w-full overflow-y-auto">
       <table className="w-full border-collapse border">{children}</table>

@@ -43,9 +43,17 @@ export function BlogList({ posts, tag }: BlogListProps) {
               </div>
             </div>
           ) : (
-            <h1 className="text-4xl md:text-6xl font-display font-semibold tracking-tight">
-              Amey&apos;s Blog
-            </h1>
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-6xl font-display font-semibold tracking-tight">
+                Amey&apos;s Blog
+              </h1>
+              <Link
+                href="/blog/tags"
+                className="inline-block text-sm text-muted-foreground underline underline-offset-4 hover:text-accent-brand transition-colors"
+              >
+                Browse all tags →
+              </Link>
+            </div>
           )}
         </header>
       </BlurFade>
