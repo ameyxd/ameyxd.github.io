@@ -16,24 +16,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: main-site
 
       - name: Checkout Focus Time repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: ameyxd/focus-time
           token: ${{ secrets.GH_PAT }}
           path: focus-time
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v6
         with:
           version: 8
           run_install: false
