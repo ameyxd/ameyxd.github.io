@@ -37,8 +37,33 @@ export const library: {
 } = {
   currentlyReading: [
     {
+      title: "East of Eden",
+      author: "John Steinbeck",
+      cover: "https://covers.openlibrary.org/b/isbn/9780140186390-M.jpg",
+      startedAt: "2026-07-23",
+    },
+    {
+      title: "Lonesome Dove",
+      author: "Larry McMurtry",
+      cover: "https://covers.openlibrary.org/b/isbn/9780671683900-M.jpg",
+      startedAt: "2026-07-23",
+    },
+    {
+      title: "Rebecca",
+      author: "Daphne du Maurier",
+      cover: "https://covers.openlibrary.org/b/isbn/9780380730407-M.jpg",
+      startedAt: "2026-07-23",
+    },
+    {
+      title: "Piranesi",
+      author: "Susanna Clarke",
+      cover: "https://covers.openlibrary.org/b/isbn/9781635575637-M.jpg",
+      startedAt: "2026-07-23",
+    },
+    {
       title: "Kitchen Confidential",
       author: "Anthony Bourdain",
+      cover: "https://covers.openlibrary.org/b/isbn/9780060899226-M.jpg",
       startedAt: "2026-05-29",
     },
   ],
@@ -47,24 +72,28 @@ export const library: {
     {
       title: "Giovanni's Room",
       author: "James Baldwin",
+      cover: "https://covers.openlibrary.org/b/isbn/9780345806567-M.jpg",
       finishedAt: "2026-04-01",
       rating: 4.5,
     },
     {
       title: "The Three-Body Problem",
       author: "Liu Cixin",
+      cover: "https://covers.openlibrary.org/b/isbn/9780765382030-M.jpg",
       finishedAt: "2026-03-01",
       rating: 2,
     },
     {
       title: "Flesh",
       author: "David Szalay",
+      cover: "https://covers.openlibrary.org/b/isbn/9781982122812-M.jpg",
       finishedAt: "2026-02-01",
       rating: 2,
     },
     {
       title: "The Courage to Be Disliked",
       author: "Ichiro Kishimi & Fumitake Koga",
+      cover: "https://covers.openlibrary.org/b/isbn/9781501197277-M.jpg",
       finishedAt: "2025-01-04",
       rating: 5,
       notes: "Adlerian psychology — teleology over etiology. Wrote about it on the blog.",

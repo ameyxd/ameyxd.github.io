@@ -1,0 +1,26 @@
+{
+  "eat-an-orange-in-the-shower": {
+    "title": "Eat an orange in the shower",
+    "description": "I'm being deadass",
+    "publishedAt": "November 5, 2024",
+    "readingTime": 4
+  },
+  "kishimi-adlerian-psychology": {
+    "title": "Kishimi-Adlerian Psychology",
+    "description": "The Courage to Be Disliked, and the philosophy of teleology",
+    "publishedAt": "January 4, 2025",
+    "readingTime": 19
+  },
+  "se-radio-717-decoupling-observability": {
+    "title": "SE Radio 717 — Eric Tschetter on Decoupling Observability",
+    "description": "I hosted Apache Druid co-founder Eric Tschetter on Software Engineering Radio to talk about breaking the observability stack into four layers — and what it takes to escape a coupled vendor stack.",
+    "publishedAt": "July 5, 2026",
+    "readingTime": 3
+  },
+  "unexpected-visitor-pt1": {
+    "title": "The Unexpected Visitor Part 1",
+    "description": "Sulfur tries to save his buddy.",
+    "publishedAt": "October 31, 2024",
+    "readingTime": 5
+  }
+}

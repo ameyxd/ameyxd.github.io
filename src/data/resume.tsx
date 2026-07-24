@@ -14,16 +14,18 @@ export const DATA = {
     "Amey builds AI for Dataiku clients across pharma, retail, finance, insurance, and energy. He hosts SE Radio, lives in Houston with a cat named Crow, lifts heavy, and makes music when it's quiet.",
   avatarUrl: "/me.png",
   skills: [
+    "LLM Agents",
+    "MCP",
+    "RAG",
+    "LangChain",
+    "LangGraph",
     "Python",
-    "TensorFlow",
+    "TypeScript",
     "PyTorch",
-    "Keras",
     "Scikit-learn",
     "Pandas",
-    "R",
-    "Node.js",
     "SQL",
-    "Postgres",
+    "Vector Databases",
     "Docker",
     "Kubernetes",
     "Dataiku",
@@ -86,15 +88,54 @@ export const DATA = {
 
   work: [
     {
+      company: "Dataiku",
+      href: "https://www.dataiku.com",
+      badges: ["GenAI", "LLM Agents", "Consulting"],
+      location: "Houston, TX",
+      title: "Senior Data Scientist",
+      logoUrl: "/dataiku.png",
+      start: "2026",
+      end: "Present",
+      description: "",
+      highlights: [
+        "Client-facing AI consulting across oil and gas, pharma, retail, insurance, fintech, and services: solution delivery, pre-sales scoping, enablement, and demos across five concurrent accounts.",
+        "Production AI deployment for a Fortune 500 oil and gas client, used by 70 business intelligence users; extends earlier edge ML work into a centralized, LLM Mesh-driven analytics environment.",
+        "Four production use cases for a Fortune 500 fintech client: merchant sales forecasting, financial entity mapping, a Financial Analyst Assistant agent, and a Next Best Offer engine built on my ALS recommender plugin.",
+        "Multimodal RAG agent for a global pharma client for patent analysis and document retrieval; clinical review tagging agents in development. LangChain, LangGraph, Cohere embeddings, vector databases.",
+        "Risk modeling POC for a large insurance client, projected to serve 200+ underwriting users with an estimated 80% reduction in modeling cycle time.",
+        "Custom plugins in the Dataiku ecosystem, including an ALS recommender; internal Cohere-based multimodal embeddings asset for semantic search in progress.",
+        "Two GenAI and agentic workshops for 250+ client practitioners; coach junior data scientists and run technical interviews.",
+      ],
+    },
+    {
+      company: "EvoLeap",
+      href: "https://evoleap.com",
+      badges: ["MCP", "ML"],
+      location: "Houston, TX",
+      title: "Lead Data Scientist - ML",
+      logoUrl: "/evoleap.png",
+      start: "2025",
+      end: "2025",
+      description: "",
+      highlights: [
+        "MCP servers for AI-based API development.",
+        "Sensor fusion filters.",
+      ],
+    },
+    {
       company: "SLB",
       href: "https://slb.com",
       badges: ["AI", "ML", "Computer Vision"],
       location: "Houston, TX",
-      title: "Senior Data Scientist",
+      title: "Senior Data Scientist - Machine Learning",
       logoUrl: "/slb.jpg",
-      start: "May 2023",
-      end: "current",
-      description:" Led technical teams in next-gen applied ML for asset performance management and system optimization offerings under the Digital Twin framework. Delivered client-facing SaaS solutions for integrating research-based LLM (Large Language Model) applications with internal data science orchestration platforms and external data lakes, generating $3M in revenue (Q1 2024). Built the SLB Vision Analytics suite, including fire and smoke detection, people counters, personal protective equipment (PPE) detection, pose estimation and tracking systems using transfer learning and computer vision models like YOLOv5 for real-time video camera feeds. Generated $4.5M in revenue from ongoing client contracts, improved field safety by 45%, reduced risk associated with improper PPE by 35%, and reduced the client engineering safety team surveillance time by 30%. Led technical data science and management efforts for a 3-person team, to build an end-to-end machine learning service with real-time control optimization for dynacard image classification models to identify failure signatures in 100+ wells for a large American firm. Resulted in $10M+ in operational savings, 60 % faster detection time while reducing downtimes by 19%. Designed, built and productionized Smart Surveillance, an ML solution for hydrate detection for an international firm generating $2M+ in revenue, boosting production by 15%, reducing labor by 12%. Developed systems to detect emulsions for South American fields using multivariate time series ensemble tree models, reducing non-productive time by 25% and saving $1M+ in maintenance costs.",
+      start: "2023",
+      end: "2025",
+      description: "",
+      highlights: [
+        "$20M+ in documented client value from production ML for energy.",
+        "Dynacard classification, ESP failure prediction, vision analytics, Smart Alarms, and MLOps/edge frameworks.",
+      ],
     },
     {
       company: "Schlumberger",
@@ -103,10 +144,13 @@ export const DATA = {
       location: "Houston, TX",
       title: "Data Scientist",
       logoUrl: "/schlumberger.jpg",
-      start: "Feb 2019",
-      end: "May 2023",
-      description:
-        "Developed failure and anomaly prediction models for Prognostic Health Management, implemented ML backend infrastructure and drove collaboration by partnering with field, client, and product teams to build apps to visualize wells based on their production rates using machine learning. Built a deep learning-based CNN model to classify erosion levels in mechanical tools and deployed a scalable cloud-based API, increasing precision by 8% and reducing detection time by 10%. Built a health analyzer application using unsupervised learning to predict tool failures to aid scientists and engineers.",
+      start: "2019",
+      end: "2023",
+      description: "",
+      highlights: [
+        "Failure and anomaly prediction models for prognostic health management.",
+        "CNN erosion classifier for mechanical tools, deployed as a cloud API.",
+      ],
     },
     {
       company: "Schlumberger",
@@ -115,10 +159,12 @@ export const DATA = {
       location: "Houston, TX",
       title: "Data Science Intern",
       logoUrl: "/schlumberger.jpg",
-      start: "May 2018",
-      end: "Aug 2018",
-      description:
-        "Improved inventory control by developing LSTM models to predict cracking from time series data of drill sensors. Designed a health analyzer application in Python to predict tool sensor failures for aiding experts in field.",
+      start: "2018",
+      end: "2018",
+      description: "",
+      highlights: [
+        "LSTM models predicting drill sensor cracking from time series data.",
+      ],
     },
     {
       company: "Columbia University | Columbia Law School",
@@ -127,10 +173,13 @@ export const DATA = {
       location: "New York, NY",
       title: "Graduate Researcher",
       logoUrl: "/culaw.png",
-      start: "Dec 2017",
-      end: "Oct 2018",
-      description:
-        "Built a session-based recommendation system using a deep learning-based encoder-decoder architecture incorporating contextual information from users and an attention mechanism, improving displayed recommendations in e-commerce scenarios by 3% over present baselines on the YouChoose dataset (CNARM). Developed NLP and ML software to predict outcome of contractual damage lawsuits to benefit academics in debates, parties in drafting contracts, counsels in pre-trial exchanges and judges in rulings, now part of Optimalex, an AI-based legal predictive analytics solution for insurance claims.",
+      start: "2017",
+      end: "2018",
+      description: "",
+      highlights: [
+        "Session-based recommendation research (CNARM) with attention-based encoder-decoder models.",
+        "NLP models predicting contract lawsuit outcomes, now part of Optimalex.",
+      ],
     },
     {
       company: "CY Tech | Ecole Internationale des Sciences du Traitement de l'Information (EISTI)",
@@ -139,10 +188,12 @@ export const DATA = {
       location: "Paris, France",
       title: "Software Engineer Intern",
       logoUrl: "/cytech.svg",
-      start: "May 2016",
-      end: "Aug 2016",
-      description:
-        "Built automatic data extraction and analysis models using NLP and machine learning for AREL, an e-learning platform used by 1500+ French students and alumni. Developed software to restructure the web app, enhancing app usability.",
+      start: "2016",
+      end: "2016",
+      description: "",
+      highlights: [
+        "NLP data extraction for AREL, an e-learning platform used by 1500+ students.",
+      ],
     },
   ],
   education: [
@@ -207,7 +258,7 @@ export const DATA = {
       dates: "May 2026 - Present",
       active: true,
       description:
-        "MCP server that exposes petroleum data formats to Claude. v0.2 ships LAS; DLIS, SEG-Y, and pump cards next. Bridges traditional energy data into the LLM tool-use ecosystem.",
+        "MCP server exposing petroleum data formats to LLM hosts like Claude; listed on the MCP.so community directory. v0.2 ships LAS well logs (DLIS, SEG-Y, and pump cards on the roadmap) with tools for log QC, per-curve statistics, well comparison, and unit conversion. Local-first: strict path allowlist, zero outbound calls, no telemetry. Full eval suite and CI. MIT.",
       tags: ["MCP", "Python", "Claude", "Energy", "LLM"],
       links: [
         {
@@ -225,7 +276,7 @@ export const DATA = {
       dates: "May 2026 - Present",
       active: true,
       description:
-        "Forces a written spec before any code change and logs every edit with a backlink. Hook-based enforcement; complementary to GitHub's spec-kit.",
+        "Spec-driven development enforcement for AI coding agents: blocks code edits until a written spec exists, logs every edit with backlinks, and produces coverage reports. Published benchmark eval suite shows a 75%+ reduction in out-of-scope file edits versus baseline agent runs. Complementary to GitHub's spec-kit. MIT.",
       tags: ["Python", "Developer Tools", "Hooks", "Spec-Driven"],
       links: [
         {
@@ -243,8 +294,8 @@ export const DATA = {
       dates: "Nov 2024 - Present",
       active: true,
       description:
-        "A TikTok parser and saver for Obsidian. Captures video metadata, captions, and links into your vault as structured notes.",
-      tags: ["TypeScript", "Obsidian", "Plugin"],
+        "Obsidian community plugin (1000+ downloads, approved on the official registry, runs on iOS, Android, Windows, Linux, and macOS) for saving TikToks as markdown notes with a review queue. Transcription is fully on-device: whisper.cpp / faster-whisper over a yt-dlp + ffmpeg audio pipeline, no cloud calls.",
+      tags: ["TypeScript", "Obsidian", "Whisper", "Python"],
       links: [
         {
           type: "Source",
@@ -258,40 +309,57 @@ export const DATA = {
   ],
   patents: [
     {
-      title: " Machine Learning Model Operationalization Management Framework for Continuous Updates on IIoT Devices",
-      number: "US-63/389,627",
-      issuedDate: "2024",
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=9aWxxbIAAAAJ&citation_for_view=9aWxxbIAAAAJ:UeHWp8X0CEIC",
-    },
-    {
-      title: " Failure Prediction for Run-Life Estimation of ESPs for PHM",
-      number: "US-63/358,189 | US20240003242A1",
-      issuedDate: "2024",
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=9aWxxbIAAAAJ&citation_for_view=9aWxxbIAAAAJ:qjMakFHDy7sC",
-    },
-    {
-      title: "Real-Time ESP Smart Alarms Suite Enabled Through Data Analytics and Edge-Based Multiphase Flow Simulator",
-      number: "US-63/300,121",
-      issuedDate: "2023",
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=9aWxxbIAAAAJ&citation_for_view=9aWxxbIAAAAJ:W7OEmFMy1HYC",
-    },
-    {
-      title: "Artificial Intelligence-Driven Real-Time Dynamometer Classification for Diagnosis of SRPs",
-      number: "US-63/272,999",
-      issuedDate: "2023",
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=9aWxxbIAAAAJ&citation_for_view=9aWxxbIAAAAJ:Y0pCki6q_DkC",
+      title: "Field Pump Equipment System",
+      number: "US 12,291,957",
+      status: "Granted",
+      date: "Granted May 2025",
+      summary:
+        "ML-based failure prediction and run-life estimation for electrical submersible pumps: an anomaly detector feeding a survival-function prediction model.",
+      link: "https://patents.google.com/patent/US12291957B2/en",
     },
     {
       title: "Wellsite Operations Machine Vision Framework",
-      number: "IS23.1285",
-      issuedDate: "PP",
-      link: "Patent Pending",
+      number: "US 2025/0104436",
+      status: "Pending",
+      date: "Filed September 2024",
+      summary:
+        "Line-of-fire and human safety risk detection from wellsite imagery.",
+      link: "https://patents.google.com/patent/US20250104436A1/en",
     },
     {
-      title: "SRP Operations Diagnosis Solutions",
-      number: "IS23.1230",
-      issuedDate: "PP",
-      link: "Patent Pending",
+      title: "Field Equipment System",
+      number: "US 2025/0270991",
+      status: "Pending",
+      date: "Filed February 2025",
+      summary:
+        "Dynacard-based operational condition detection with pump control.",
+      link: "https://patents.google.com/patent/US20250270991A1/en",
+    },
+    {
+      title: "AI-Driven Classification Workflow for Diagnosis of Sucker Rod Pump Operating Conditions",
+      number: "US 2024/0401586",
+      status: "Pending",
+      date: "Filed October 2022",
+      summary:
+        "Real-time classification of sucker rod pump operating conditions.",
+      link: "https://patents.google.com/patent/US20240401586A1/en",
+    },
+    {
+      title: "Field Equipment System",
+      number: "US 2024/0018863",
+      status: "Pending",
+      date: "Filed July 2023",
+      summary:
+        "ML model operationalization and continuous updates on IIoT devices.",
+      link: "https://patents.google.com/patent/US20240018863A1/en",
+    },
+    {
+      title: "Field Pump Equipment System",
+      number: "US 2025/0067164 / WO 2023/136856",
+      status: "Pending",
+      date: "Priority January 2022",
+      summary: "Real-time pump performance issue detection.",
+      link: "https://patents.google.com/patent/US20250067164A1/en",
     },
   ],
 
@@ -299,47 +367,61 @@ export const DATA = {
     {
       title: "Enhancing Edge-Based SRP Production Optimization Algorithm with Fast Loop Mitigation",
       authors: "Ambade, A., et al.",
-      journal: "ADIPEC 2024",
+      journal: "ADIPEC",
       year: "2024",
-      link: "https://scholar.google.com/citations?user=9aWxxbIAAAAJ",
+      link: "https://dx.doi.org/10.2118/222618-MS",
     },
     {
       title: "Real-Time Well Constraint Detection Using an Intelligent Surveillance System",
       authors: "Ambade, A., et al.",
       journal: "SPE Canadian Energy Technology Conference",
       year: "2024",
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=9aWxxbIAAAAJ&citation_for_view=9aWxxbIAAAAJ:IjCSPb-OGe4C",
+      link: "https://dx.doi.org/10.2118/218043-MS",
     },
     {
-      title: "Real-time Smart Alarms Suite Enabled Through Data Analytics and Edge-based Virtual Flowmeter",
+      title: "Real-time Electrical Submersible Pump Smart Alarms Suite Enabled Through Data Analytics and Edge-based Virtual Flowmeter",
       authors: "Ambade, A., et al.",
-      journal: "SPE ATCE",
+      journal: "SPE Annual Technical Conference and Exhibition",
       year: "2022",
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=9aWxxbIAAAAJ&citation_for_view=9aWxxbIAAAAJ:d1gkVwhDpl0C",
+      link: "https://dx.doi.org/10.2118/209958-MS",
     },
     {
-      title: "Electrical Submersible Pump Prognostics and Health Monitoring using Machine Learning and NLP",
+      title: "Electrical Submersible Pump Prognostics and Health Monitoring Using Machine Learning and Natural Language Processing",
       authors: "Ambade, A., et al.",
       journal: "SPE Intelligent Oil and Gas Symposium",
       year: "2021",
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=9aWxxbIAAAAJ&citation_for_view=9aWxxbIAAAAJ:u5HHmVD_uO8C",
+      link: "https://dx.doi.org/10.2118/208649-MS",
     },
   ],
 
   professionalContributions: [
+    {
+      role: "Recurring Host",
+      event: "Software Engineering Radio",
+      conference: "IEEE Computer Society podcast",
+      year: "2025 - Present",
+      location: "Five episodes per year",
+    },
+    {
+      role: "Judge",
+      event: "Career Catalyst Scholarship and IEEE-CS Richard E. Merwin Student Scholarship",
+      conference: "IEEE",
+      year: 2026,
+      location: "Remote",
+    },
+    {
+      role: "Proceedings Chair",
+      event: "Scientific Computing with Python",
+      conference: "SciPy Conference",
+      year: "2023 - Present",
+      location: "Tacoma, WA",
+    },
     {
       role: "Chief Judge",
       event: "International Student Paper Contest",
       conference: "SPE Annual Technical Conference and Exhibition",
       year: 2024,
       location: "New Orleans, LA",
-    },
-    {
-      role: "Proceedings Chair",
-      event: "Scientific Computing with Python",
-      conference: "SciPy Conference",
-      year: 2024,
-      location: "Tacoma, WA",
     },
     {
       role: "Senior Technical Advisor",
@@ -354,13 +436,6 @@ export const DATA = {
       conference: "Energy Conference Network",
       year: 2024,
       location: "Houston, TX",
-    },
-    {
-      role: "Reviewer",
-      event: "Scientific Computing with Python",
-      conference: "SciPy Conference",
-      year: 2023,
-      location: "Austin, TX",
     },
     {
       role: "Acknowledged Contributor",
@@ -393,14 +468,16 @@ export const DATA = {
   ],
 
   professionalMemberships: [
+    "IEEE Senior Member (elevated 2026)",
+    "Member, IEEE Computer Society AI Standards Committee (C/AISC)",
+    "Member, IEEE P3462 Working Group: Safety by Design for Generative AI and Child Safety",
+    "Member, IEEE P3123 Working Group: AI/ML Terminology and Data Formats",
     "Member, Association for Computing Machinery (ACM)",
-    "Member, Institute of Electrical and Electronics Engineers Computer Society (IEEE-CS)",
-    "Member, Institute of Electrical and Electronics Engineers Computational Intelligence Society (IEEE-CIS)",
-    "Member, Institute of Electrical and Electronics Engineers Industry Applications Society (IEEE-IAS)",
-    "Member, Institute of Electrical and Electronics Engineers Technology and Engineering Management Society (IEEE-TEMS)",
-    "Member, Institute of Electrical and Electronics Engineers Educational Activities Board STEM Outreach Committee",
-    "Member, IEEE Artificial Intelligence Standards Committee - Generative AI and Foundation Model Subcommittee",
-    "Member, IEEE Standard for Artificial Intelligence and Machine Learning (AI/ML) Terminology and Data Formats Working Group",
+    "Member, IEEE Computer Society (IEEE-CS)",
+    "Member, IEEE Computational Intelligence Society (IEEE-CIS)",
+    "Member, IEEE Industry Applications Society (IEEE-IAS)",
+    "Member, IEEE Technology and Engineering Management Society (IEEE-TEMS)",
+    "Member, IEEE Educational Activities Board STEM Outreach Committee",
     "Member, IEEE Social Implications of Technology Standards Committee",
     "Member, IEEE Technology for a Sustainable Climate Community",
     "Member, Society of Petroleum Engineers (SPE)",
@@ -453,21 +530,21 @@ export const DATA = {
   mentoring: [
     {
       organization: "Columbia University",
-      role: "Mentor",
-      period: "2022 - Present",
-      description: "Mentoring undergraduates and graduates in applied ML careers through the CAMP program",
+      role: "Mentor, CAMP & Odyssey programs",
+      period: "2023 - 2025",
+      description: "Mentoring undergraduates and graduates in applied ML careers",
     },
     {
-      organization: "OIT",
+      organization: "Out in Tech Houston",
       role: "Mentor",
       period: "2023 - Present",
-      description: "Helping underprivileged LGBTQ+ youth break into the tech industry",
+      description: "Helping LGBTQ+ folks break into the tech industry",
     },
     {
-      organization: "SPE",
+      organization: "SPE Young Professionals",
       role: "Mentor",
       period: "2022 - Present",
-      description: "Mentoring undergraduates in AI and ML research",
+      description: "Mentoring early-career engineers in AI and ML",
     },
   ],
 

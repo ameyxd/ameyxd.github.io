@@ -31,11 +31,100 @@ const CORS = {
   "Content-Type": "application/json",
 };
 
+// Cacheable variant for the content endpoints below — these change at most a
+// few times a month, so let Cloudflare's edge cache absorb the traffic.
+const CORS_CACHED = {
+  "Access-Control-Allow-Origin": "*",
+  "Cache-Control": "public, max-age=43200",
+  "Content-Type": "application/json",
+};
+
+// NOTE: SE Radio episode discovery intentionally does NOT live here — Apple
+// 403s requests from Cloudflare Workers' IPs, but the iTunes Lookup API is
+// CORS-open, so SERadioSection.tsx queries Apple directly from the browser.
+
+// /letterboxd — most recent watched films from the public Letterboxd RSS
+// feed. Returns { films: [] } until the LETTERBOXD_USER var is configured.
+// RSS is parsed with regexes because Workers have no DOMParser; the feed
+// structure is stable enough for this to hold.
+async function letterboxdRecent(env, ctx) {
+  if (!env.LETTERBOXD_USER) {
+    return new Response(JSON.stringify({ films: [] }), { headers: CORS_CACHED });
+  }
+  // v2: response shape gained `review` — key bumped so stale pre-review
+  // cache entries are never served.
+  const cacheKey = new Request("https://cache.internal/letterboxd-v2");
+  const cached = await caches.default.match(cacheKey);
+  if (cached) return cached;
+
+  const res = await fetch(
+    `https://letterboxd.com/${env.LETTERBOXD_USER}/rss/`,
+    { headers: { "User-Agent": "heyamey.com library section" } },
+  );
+  if (!res.ok) {
+    return new Response(JSON.stringify({ films: [], error: "rss_error" }), {
+      status: 502,
+      headers: CORS,
+    });
+  }
+  const xml = await res.text();
+  const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].slice(0, 8);
+  const pick = (block, tag) =>
+    (block.match(new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`)) || [])[1] ?? "";
+  const decodeEntities = (s) =>
+    s
+      .replace(/&amp;/g, "&")
+      .replace(/&quot;/g, '"')
+      .replace(/&#039;/g, "'")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">");
+  // description CDATA looks like <p><img .../></p> <p>review text</p>...
+  // Entries with no review instead have a lone "Watched on <date>." paragraph.
+  const extractReview = (block) => {
+    const raw = pick(block, "description");
+    const html = raw.replace(/^<!\[CDATA\[/, "").replace(/\]\]>$/, "");
+    const paragraphs = [...html.matchAll(/<p>([\s\S]*?)<\/p>/g)].map(
+      (m) => m[1],
+    );
+    const textParagraphs = paragraphs.filter((p) => !/<img\b/i.test(p));
+    let text = textParagraphs.join(" ");
+    text = decodeEntities(text);
+    text = text.replace(/<[^>]+>/g, "").trim();
+    if (text.startsWith("Watched on")) return "";
+    if (text.length > 500) text = text.slice(0, 500) + "…";
+    return text;
+  };
+  const films = items
+    .map(([, block]) => ({
+      title: pick(block, "letterboxd:filmTitle"),
+      year: pick(block, "letterboxd:filmYear"),
+      rating: pick(block, "letterboxd:memberRating"),
+      watchedDate: pick(block, "letterboxd:watchedDate"),
+      // Strip the leading /<user>/ segment so the Letterboxd username stays private.
+      link: pick(block, "link").replace(
+        /(https:\/\/letterboxd\.com)\/[^/]+\/film\//,
+        "$1/film/",
+      ),
+      poster: (block.match(/<img src="([^"]+)"/) || [])[1] ?? "",
+      review: extractReview(block),
+    }))
+    .filter((f) => f.title);
+
+  const resp = new Response(JSON.stringify({ films }), {
+    headers: CORS_CACHED,
+  });
+  ctx.waitUntil(caches.default.put(cacheKey, resp.clone()));
+  return resp;
+}
+
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
     if (req.method === "OPTIONS") {
       return new Response(null, { headers: CORS });
     }
+
+    const { pathname } = new URL(req.url);
+    if (pathname === "/letterboxd") return letterboxdRecent(env, ctx);
 
     // Trade the refresh_token for a fresh access_token. Spotify issues a new
     // access_token every call; the refresh_token itself never expires.

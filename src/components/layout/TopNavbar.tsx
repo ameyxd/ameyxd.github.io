@@ -4,6 +4,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Icons } from "@/components/icons";
 import { ModeToggle } from "@/components/mode-toggle";
+import { TextureToggle } from "@/components/TextureToggle";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -59,7 +60,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40">
+    <nav data-site-chrome className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40">
       <div className="container-wide">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
@@ -82,11 +83,15 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <NavItems />
-            <ModeToggle />
+            <div className="flex items-center gap-1">
+              <TextureToggle />
+              <ModeToggle />
+            </div>
           </div>
 
-          {/* Mobile top-right: theme toggle + menu button */}
+          {/* Mobile top-right: texture + theme toggles + menu button */}
           <div className="md:hidden flex items-center gap-1">
+            <TextureToggle />
             <ModeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}

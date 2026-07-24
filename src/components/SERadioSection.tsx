@@ -1,13 +1,68 @@
-import Link from "next/link";
-import { seRadioEpisodes } from "@/data/se-radio";
+"use client";
 
-// SERadioSection — homepage block surfacing recent episodes I've hosted on
-// Software Engineering Radio as Apple Podcasts embeds. Server component:
-// iframes are plain HTML so no client state is needed. Renders nothing when
-// the episode list is empty so the section disappears cleanly during off
-// periods rather than showing an empty header.
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { seRadioEpisodes as fallbackEpisodes } from "@/data/se-radio";
+
+// SERadioSection — homepage block surfacing episodes I've hosted on Software
+// Engineering Radio as Apple Podcasts embeds.
+//
+// Episode discovery is dynamic: the iTunes Lookup API is CORS-open, so the
+// browser queries Apple directly for the show's episodes and keeps the ones
+// whose description names me — new episodes appear here automatically once
+// Apple indexes them. (Apple 403s Cloudflare Workers, so client-side is not
+// just simpler here, it is the only route that works.) The static list in
+// src/data/se-radio.ts remains as the fallback when the fetch fails.
+
+const SE_RADIO_ID = "120906714";
+const LOOKUP_URL = `https://itunes.apple.com/lookup?id=${SE_RADIO_ID}&media=podcast&entity=podcastEpisode&limit=200`;
+
+type LookupResult = {
+  wrapperType: string;
+  trackId: number;
+  trackName: string;
+  releaseDate: string;
+  description?: string;
+};
+
+function embedSrcFor(id: number) {
+  return `https://embed.podcasts.apple.com/us/podcast/id${SE_RADIO_ID}?i=${id}`;
+}
+
 export function SERadioSection() {
-  if (seRadioEpisodes.length === 0) return null;
+  const [episodes, setEpisodes] = useState(
+    fallbackEpisodes.map((ep) => ({ title: ep.title, embedSrc: ep.embedSrc })),
+  );
+
+  useEffect(() => {
+    fetch(LOOKUP_URL)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        const eps: LookupResult[] = (data?.results ?? []).filter(
+          (r: LookupResult) =>
+            r.wrapperType === "podcastEpisode" &&
+            (r.description ?? "").includes("Amey Ambade"),
+        );
+        if (eps.length > 0) {
+          eps.sort(
+            (a, b) =>
+              new Date(b.releaseDate).getTime() -
+              new Date(a.releaseDate).getTime(),
+          );
+          setEpisodes(
+            eps.map((ep) => ({
+              title: ep.trackName,
+              embedSrc: embedSrcFor(ep.trackId),
+            })),
+          );
+        }
+      })
+      .catch(() => {
+        // Apple unreachable — the static fallback stays in place.
+      });
+  }, []);
+
+  if (episodes.length === 0) return null;
 
   return (
     <section>
@@ -23,7 +78,7 @@ export function SERadioSection() {
         </Link>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {seRadioEpisodes.map((ep) => (
+        {episodes.map((ep) => (
           <iframe
             key={ep.embedSrc}
             src={ep.embedSrc}

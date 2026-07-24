@@ -6,6 +6,7 @@ import { SidebarNav } from "@/components/about/sidebar-nav";
 import Image from "next/image";
 import Link from "next/link";
 import BlurFade from "@/components/magicui/blur-fade";
+import { Highlight } from "@/components/Highlight";
 const BLUR_FADE_DELAY = 0.005;
 
 const sections = [
@@ -38,8 +39,18 @@ export default function AboutPage() {
                 <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
                   <div className="flex-1 space-y-6">
                     <h1 className="text-4xl md:text-5xl font-display font-semibold">About Me</h1>
-                    <p className="text-xl text-muted-foreground">{DATA.description}</p>
-                    <p className="text-lg text-muted-foreground">{DATA.summary}</p>
+                    <p className="text-xl text-muted-foreground">
+                      I build <Highlight delay={0.2}>AI systems</Highlight> for
+                      clients across industries, and write about when they{" "}
+                      <Highlight delay={0.5}>break</Highlight>.
+                    </p>
+                    <p className="text-lg text-muted-foreground">
+                      Amey builds AI for Dataiku clients across pharma, retail,
+                      finance, insurance, and energy. He hosts{" "}
+                      <Highlight delay={0.8}>SE Radio</Highlight>, lives in
+                      Houston with a cat named Crow, lifts heavy, and makes
+                      music when it&apos;s quiet.
+                    </p>
                     <BlurFade delay={BLUR_FADE_DELAY * 9}>
                       <a 
                         href="/resume.pdf" 
@@ -97,9 +108,15 @@ export default function AboutPage() {
                               subtitle={job.company}
                               href={job.href}
                               badges={job.badges}
-                              period={`${job.start} - ${job.end}`}
+                              period={
+                                job.start === job.end
+                                  ? job.start
+                                  : `${job.start} - ${job.end}`
+                              }
                               description={job.description}
+                              highlights={job.highlights}
                               location={job.location}
+                              defaultExpanded={index === 0}
                             />
                           ))}
                         </div>
@@ -149,11 +166,13 @@ export default function AboutPage() {
                           <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                             Innovative Contributions
                           </div>
-                          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                          <h2 className="text-3xl font-display font-semibold tracking-tighter sm:text-5xl">
                             Patents
                           </h2>
                           <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            I have contributed to the application of AI in the energy industry through these patented innovations.
+                            One granted US patent and five pending published
+                            applications in applied AI and ML, plus a WIPO
+                            publication. All in production energy systems.
                           </p>
                         </div>
                       </div>
@@ -164,13 +183,38 @@ export default function AboutPage() {
                           <BlurFade key={patent.number} delay={BLUR_FADE_DELAY * 18 + id * 0.05}>
                             <article className="group relative rounded-xl bg-card/30 hover:bg-card/50 backdrop-blur-sm transition-colors">
                               <li className="relative pl-6 py-4">
-                                <div className="absolute left-0 top-[2rem] -ml-[5px] h-[10px] w-[10px] rounded-full bg-foreground"></div>
-                                <h3 className="font-semibold text-lg mb-2 group-hover:text-primary/70 transition-colors">{patent.title}</h3>
+                                <div
+                                  className={`absolute left-0 top-[2rem] -ml-[5px] h-[10px] w-[10px] rounded-full ${
+                                    patent.status === "Granted"
+                                      ? "bg-accent-brand"
+                                      : "bg-foreground"
+                                  }`}
+                                ></div>
+                                <div className="flex flex-wrap items-center gap-2 mb-2">
+                                  <h3 className="font-semibold text-lg group-hover:text-primary/70 transition-colors">
+                                    {patent.title}
+                                  </h3>
+                                  <span
+                                    className={`rounded-full px-2 py-0.5 text-xs font-medium ${
+                                      patent.status === "Granted"
+                                        ? "bg-accent-brand/15 text-accent-brand"
+                                        : "bg-muted text-muted-foreground"
+                                    }`}
+                                  >
+                                    {patent.status}
+                                  </span>
+                                </div>
                                 <p className="text-sm text-muted-foreground">
-                                  Patent No: {patent.number} | Issued: {patent.issuedDate}
+                                  {patent.number} · {patent.date}
                                 </p>
-                                <Link href={patent.link} className="text-sm text-blue-500 hover:underline">
-                                  View Patent
+                                <p className="text-sm mt-1">{patent.summary}</p>
+                                <Link
+                                  href={patent.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-sm text-blue-500 hover:underline"
+                                >
+                                  View on Google Patents
                                 </Link>
                               </li>
                             </article>

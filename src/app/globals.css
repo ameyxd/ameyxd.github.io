@@ -300,3 +300,85 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 ::view-transition-new(root) {
   z-index: 2;
 }
+/* Reading mode — toggled on <html> by ReadingModeToggle on blog posts.
+   Chrome (navbar, footer, dock) dims until hovered, the post measure widens,
+   and body copy switches to the display serif at a book-like size. */
+[data-site-chrome] {
+  transition: opacity 0.3s ease;
+}
+html.reading-mode [data-site-chrome] {
+  opacity: 0.12;
+}
+html.reading-mode [data-site-chrome]:hover,
+html.reading-mode [data-site-chrome]:focus-within {
+  opacity: 1;
+}
+html.reading-mode [data-post-container] {
+  max-width: 54rem;
+}
+html.reading-mode [data-post-container] .prose {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.1875rem;
+  line-height: 1.9;
+}
+
+/* Background textures — cycled by TextureToggle via data-texture on <html>.
+   All overlays are fixed, pointer-transparent, and sit above content but
+   below the navbar/dock (z-index below their z-50/z-30 stacking contexts is
+   irrelevant since pointer-events are off; opacity keeps them subtle). */
+html[data-texture] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+}
+html[data-texture="none"] body::after {
+  content: none;
+}
+html[data-texture="grain"] body::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+}
+html[data-texture="paper"] body::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04 0.09' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+}
+.dark html[data-texture="paper"] body::after,
+html.dark[data-texture="paper"] body::after {
+  mix-blend-mode: screen;
+  opacity: 0.05;
+}
+html[data-texture="dots"] body::after {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 14px 14px;
+  color: hsl(var(--foreground));
+  opacity: 0.05;
+}
+html[data-texture="grid"] body::after {
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: hsl(var(--accent-brand, 217 91% 60%));
+  opacity: 0.05;
+}
+html[data-texture="scanlines"] body::after {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    currentColor 0px,
+    currentColor 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  color: hsl(var(--foreground));
+  opacity: 0.04;
+}
+html[data-texture="riso"] body::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.55' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
+  background-color: hsl(217 91% 60% / 0.35);
+  background-blend-mode: color-burn;
+  opacity: 0.08;
+}

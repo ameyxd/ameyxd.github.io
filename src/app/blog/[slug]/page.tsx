@@ -9,6 +9,8 @@ import { Suspense } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
 import { MDXContent } from '@/components/mdx/MDXComponents';
 import { TableOfContents } from '@/components/blog/TableOfContents';
+import { PostNav, RelatedPosts } from '@/components/blog/PostFooter';
+import { ReadingModeToggle } from '@/components/blog/ReadingModeToggle';
 import Image from 'next/image';
 
 export async function generateStaticParams() {
@@ -31,7 +33,9 @@ export async function generateMetadata({
     description,
     image,
   } = post.metadata;
-  let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
+  let ogImage = image
+    ? `${DATA.url}${image}`
+    : `${DATA.url}/images/og/${post.slug}.jpg`;
 
   return {
     title,
@@ -80,7 +84,8 @@ export default async function Blog({
         </div>
       )}
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-16">
+      <ReadingModeToggle />
+      <div data-post-container className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-16 transition-[max-width] duration-300">
         {/* TODO: Add table of contents */}
         {/* <TableOfContents source={post.source} /> */}
         
@@ -97,7 +102,7 @@ export default async function Blog({
               description: post.metadata.description,
               image: post.metadata.image
                 ? `${DATA.url}${post.metadata.image}`
-                : `${DATA.url}/og?title=${post.metadata.title}`,
+                : `${DATA.url}/images/og/${post.slug}.jpg`,
               url: `${DATA.url}/blog/${post.slug}`,
               author: {
                 "@type": "Person",
@@ -127,6 +132,8 @@ export default async function Blog({
               <MDXContent source={post.source} />
             </div>
           </article>
+          <RelatedPosts slug={post.slug} />
+          <PostNav slug={post.slug} />
         </BlurFade>
       </div>
     </div>
