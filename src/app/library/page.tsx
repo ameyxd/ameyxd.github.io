@@ -1,5 +1,6 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { BookCard } from "@/components/library/BookCard";
+import { RecentlyWatched } from "@/components/library/RecentlyWatched";
 import { library, type Book } from "@/data/library";
 
 export const metadata = {
@@ -95,6 +96,10 @@ export default function LibraryPage() {
             </div>
           )}
         </section>
+      </BlurFade>
+
+      <BlurFade delay={BLUR_FADE_DELAY * 4}>
+        <RecentlyWatched />
       </BlurFade>
     </div>
   );

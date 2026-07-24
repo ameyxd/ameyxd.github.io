@@ -53,6 +53,19 @@ export function BookCard({ book, variant, className }: Props) {
         {isRead ? <AnimatedCheckmark /> : <LiveDot />}
       </div>
 
+      {book.cover && (
+        // Covers come from the Open Library Covers API (hotlinked); plain img
+        // keeps remote URLs simple under output: export.
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={book.cover}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          className="w-12 h-[4.5rem] shrink-0 rounded object-cover border border-border/40 bg-muted"
+        />
+      )}
+
       <div className="flex-1 min-w-0">
         <h3 className="font-display text-lg md:text-xl font-semibold leading-tight">
           {book.title}
