@@ -18,8 +18,10 @@ interface ResumeCardProps {
   badges?: readonly string[];
   period: string;
   description?: string;
+  highlights?: readonly string[];
   location?: string;
   specialization?: string;
+  defaultExpanded?: boolean;
 }
 
 export const ResumeCard = ({
@@ -31,13 +33,16 @@ export const ResumeCard = ({
   badges,
   period,
   description,
+  highlights,
   location,
   specialization,
+  defaultExpanded = false,
 }: ResumeCardProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(defaultExpanded);
+  const hasDetails = Boolean(description || highlights?.length);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (description) {
+    if (hasDetails) {
       e.preventDefault();
       setIsExpanded(!isExpanded);
     }
@@ -103,7 +108,7 @@ export const ResumeCard = ({
               </div>
             )}
           </CardHeader>
-          {description && (
+          {hasDetails && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{
@@ -116,9 +121,21 @@ export const ResumeCard = ({
               }}
               className="px-6 pb-6 text-base text-muted-foreground"
             >
-              <div className="mt-2">
-                {description}
-              </div>
+              {highlights?.length ? (
+                <ul className="mt-2 space-y-1.5">
+                  {highlights.map((item) => (
+                    <li key={item} className="flex gap-2.5">
+                      <span
+                        aria-hidden
+                        className="mt-[0.6em] size-1.5 shrink-0 rounded-full bg-accent-brand"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="mt-2">{description}</div>
+              )}
             </motion.div>
           )}
         </div>

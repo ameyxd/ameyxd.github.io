@@ -19,4 +19,9 @@ export const seRadioEpisodes: SERadioEpisode[] = [
     embedSrc:
       "https://embed.podcasts.apple.com/us/podcast/eric-tschetter-on-decoupling-observability/id120906714?i=1000763163739",
   },
+  {
+    title: "Sahaj Garg on Designing for Ambiguity in Human Input",
+    embedSrc:
+      "https://embed.podcasts.apple.com/us/podcast/sahaj-garg-on-designing-for-ambiguity-in-human-input/id120906714?i=1000760353614",
+  },
 ];
